@@ -1,0 +1,113 @@
+$hover-scale: 1.05;
+$transition-duration: 0.3s;
+.service-card {
+    transition: all $transition-duration ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale($hover-scale);
+        z-index: 10;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+    }
+}
+.features-container {
+    background-color: #f1f5f9;
+    
+    .feature-card {
+        background-color: #003061;
+        border-radius: 40px;
+        padding: 50px 30px 40px;
+        position: relative;
+        margin-top: 40px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-number {
+            position: absolute;
+            top: -45px;
+            left: 20px;
+            font-size: 80px;
+            font-weight: 800;
+            color: #cc0000;
+            line-height: 1;
+            font-family: 'Inter', sans-serif;
+            z-index: 2;
+        }
+
+
+        h5 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+    }
+}
+
+
+//Login Page
+.o_database_list, .o_home_menu_background {
+    background: red !important;
+    background: fixed !important;
+}
+.oe_login_form {
+    background: white !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3) !important;
+    border-top: 5px solid red !important;
+    max-width: 400px;
+    margin: 60px auto !important;
+
+    .btn-primary {
+        background-color: #003061 !important;
+        border-color: #003061 !important;
+        border-radius: 8px !important;
+        padding: 10px !important;
+        font-weight: bold;
+
+        &:hover {
+            background-color: #cc0000 !important;
+            border-color: #cc0000 !important;
+        }
+    }
+    input.form-control {
+        border-radius: 8px !important;
+        border: 1px solid #dee2de !important;
+        &:focus {
+            border-color: #003061 !important;
+            box-shadow: 0 0 0 0.2rem rgba(0, 48, 97, 0.25) !important;
+        }
+    }
+}
+
+//Backend Dashboard
+.o_main_navbar {
+    background-color: #003061 !important;
+    border-bottom: 2px solid #cc0000 !important;
+
+    .o_menu_brand, .o_nav_entry {
+        font-weight: bold !important;
+        color: white !important;
+    }
+
+    .o_menu_sections >li >a, .o_menu_systray >li >a {
+        color: #cc0000 !important;
+        &:hover {
+            color: white !important;
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+    }
+}
+.o_navbar_apps_manu {
+    background-color: #cc0000 !important;
+    &:hover {
+        background-color: #a00000 !important;
+    }
+}

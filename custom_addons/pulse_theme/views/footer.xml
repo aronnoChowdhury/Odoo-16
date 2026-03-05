@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="custom_footer" inherit_id="website.layout" name="Custom Footer">
+        
+        <xpath expr="//footer" position="replace">
+            
+            <footer t-if="website.id == 1" class="bg-dark text-white pt-5 pb-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <h4 class="fw-bold text-primary mb-3">MyOdoo Pro</h4>
+                            <p class="text-light">We are create world class website with Odoo16.</p>
+                            <div class="d-flex gap-3 fd-4 mt-3">
+                                <a href="#" class="text-white"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="text-white"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="text-white"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5 class="fw-bold mb-3">Quick Links</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-light">Home</a></li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-light">Shop</a></li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-light">Contact Us</a></li>
+                                <li class="mb-2"><a href="#" class="text-decoration-none text-light">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5 class="fw-bold mb-3">Newsletter</h5>
+                            <p class="text-white">
+                                For new upgrade pleace subscribe.
+                            </p>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Email Address"/>
+                                <button class="btn btn-primary">Join</button>
+                            </div>
+                        </div>
+
+                        <hr class="border-secondary"/>
+                        <div class="text-center mt-4">
+                            <p class="text-primary mb-0">© 2026 MyOdoo Pro. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </xpath>
+
+    </template>
+
+</odoo>

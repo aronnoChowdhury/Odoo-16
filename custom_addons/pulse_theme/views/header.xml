@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="pro_header_inherit" inherit_id="website.layout" name="Odoo Pro Custom Header">
+        <xpath expr="//header" position="replace">
+            
+            <t t-if="website.name == 'Odoo Pro'">
+                <header class="navbar navbar-expand-lg navbar-dark bg-dark shadow-lg sticky-top py-3">
+                    <div class="container">
+                        <a class="navbar-brand fw-bold fs-3 text-uppercase" href="/">
+                            <span class="text-primary">My</span>Odoo
+                        </a>
+
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#proNavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="proNavbar">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold align-items-center">
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="/shop">Shop</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link px-3" href="/contactus">Contact</a>
+                                </li>
+                                <li class="nav-item ms-lg-3">
+                                    <a href="/contactus" class="btn btn-info text-white px-4 py-2 rounded-pill fw-bold" style="background-color: #3a9691; border-color: #3a9691;">
+                                        Get Started
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </header>
+            </t>
+
+            <t t-else="">
+                <t t-call="website.navbar">
+                    <t t-set="_navbar_classes" t-value="'shadow-sm'"/>
+                </t>
+            </t>
+
+        </xpath>
+    </template>
+</odoo>

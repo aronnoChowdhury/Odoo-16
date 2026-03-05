@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="plus_footer"  inherit_id="website.layout" name="Plus Footer">
+        <xpath expr="//footer" position="replace">
+            <footer class="text-white" style="background-color: #003061; font-family: 'Inter', sans-serif; padding-top: 60px;">
+                <div class="container pb-5">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-12 mb-5 mb-lg-0 text-center text-lg-start">
+                            <h2 class="fw-bold mb-4">Let's Work <span class="text-danger">Together</span></h2>
+                            <p class="mb-4 opacity-75 mx-auto mx-lg-0">Experience smarter communication with Pulse Telecom. Our hosted PBX, VoIP, and unified communications solutions bring clarity, flexibility, and efficiency to teams of every size.</p>
+                            <div class="mt-4 fw-semibold">
+                                <p class="mb-2"><i class="fa fa-phone me-3"/>00 -00 00 00 00</p>
+                                <p class="mb-2"><i class="fa fa-envelope me-3"/>info@plustelecom.com</p>
+                                <p class="mb-2"><i class="fa fa-map-marker me-3"/>123 Plus Street, Dublin, Ireland</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-6 mb-4 mb-lg-auto text-start">
+                            <h5 class="text-danger fw-bold mb-3">Services</h5>
+                            <ul class="list-unstyled opacity-75" style="line-height: 2;">
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Hosted PBX and Cloud PBX</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">VoIP Phone System</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Unified Communications</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Mobile Solutions</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Security Solutions</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Telecom Hardware Shop</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 col-6 mb-4 mb-lg-auto text-start">
+                            <h5 class="text-danger fw-bold mb-3">Shop</h5>
+                            <ul class="list-unstyled opacity-75 mb-4" style="line-height: 2;">
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">IP Phones</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Headsets</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Router and Switches</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Accessories</a></li>
+                            </ul>
+                            <h5 class="fw-bold text-danger mb-3">Company</h5>
+                            <ul class="list-unstyled opacity-75" style="line-height: 2;">
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">About Us</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Blogs</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Partners</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-12 mb-4 mb-lg-auto align-items-center text-start">
+                            <h5 class="text-danger fw-bold mb-3">Solutions</h5>
+                            <ul class="list-unstyled opacity-75" style="line-height: 2;">
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Multi Sites and Remote Teams</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Cost-Saving Telecom Audits</a></li>
+                                <li class=""><a href="#" class="text-decoration-none text-white h6">Case Studies</a></li>
+                            </ul>
+                            <div class="d-flex justify-content-center justify-content-lg-start gap-3 mb-4 fs-5">
+                                <a href="#" class="text-white"><i class="fa fa-facebook"/></a>
+                                <a href="#" class="text-white"><i class="fa fa-instagram"/></a>
+                                <a href="#" class="text-white"><i class="fa fa-linkedin"/></a>
+                                <a href="#" class="text-white"><i class="fa fa-twitter"/></a>
+                            </div>
+                            <div class="text-center text-lg-start mt-2">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/PLUS_logo.png" alt="Plus" style="height: 70px;"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-4 border-top border-white border-opacity-10">
+                    <div class="container">
+                        <div class="row small align-items-center opacity-50 text-center text-md-start">
+                            <div class="col-md-4 mb-2 mb-md-0">
+                                © 2026 Pulse Telecom. All rights reserved.
+                            </div>
+                            <div class="col-md-4 mb-2 mb-md-0 text-center">
+                                <a href="#" class="text-white text-decoration-none me-2">Privacy</a>
+                                <a href="#" class="text-white text-decoration-none me-2">Terms</a>
+                                <a href="#" class="text-white text-decoration-none">Sitemap</a>
+                            </div>
+                            <div class="col-md-4 text-md-end">
+                                Present By Aronno Chowdhury
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </xpath>
+    </template>
+
+</odoo>

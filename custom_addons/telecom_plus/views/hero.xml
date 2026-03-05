@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_plus_hero" name="Plus Telecom Hero">
+        <section class="s_plus_hero py-5" style="background-color: #f4f7fa; overflow: hidden;"> 
+            <div class="container py-lg-5">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-12 mb-5 mb-lg-0 text-center text-lg-start">
+                        <h1 class="display-3 fw-bold mb-4" style="color: #003061; line-height: 1.1;">A Better Way For<br/>Irish Business to<br/>Communicate</h1>
+                        <p class="lead mb-5 opacity-75" style="max-width: 500px; color: #444;">Reliable, cloud-based business communications including Hosted PBX, VoIP, SIP Trunks, and professional telecom hardware.</p>
+                        <div class="d-flex gap-3 text-center text-lg-start">
+                            <a href="#" class="btn btn-dark px-4 py-3 fw-bold rounded-1" style="background-color: #001f3f;">Shop Hardware</a>
+                            <a href="#" class="btn btn-danger px-4 py-3 fw-bold rounded-1">Get a Quote</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12 text-center text-lg-start">
+                        <img src="https://freepngimg.com/save/10546-computer-pc-png-clipart/480x350" alt="Hero Image" class="img-fluid"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

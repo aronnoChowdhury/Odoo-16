@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="plus_snippets" inherit_id="website.snippets" name="Plus Telecom Snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+            <div class="o_panel" id="plus_snippets_panel">
+                <div class="o_panel_header">Plus Telecom</div>
+                <div class="o_panel_body">
+                    <t t-snippet="telecom_plus.s_plus_hero"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_banner.svg"> 
+                       <keywords>hero, jumbotron</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_second"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_second.svg">
+                       <keywords>second, provider, trusted</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_third"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_third.svg">
+                       <keywords>third, services</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_forth"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_forth.svg">
+                       <keywords>forth, shop hardware</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_fifth"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_fifth.svg">
+                       <keywords>fifth, features</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_sixth"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_sixth.svg">
+                       <keywords>sixth, contact</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_seventh"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_seventh.svg">
+                       <keywords>seventh, compleate communication</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_eighth"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_eighth.svg">
+                       <keywords>eighth, support</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_ninth"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_ninth.svg">
+                       <keywords>ninth, request quote</keywords>
+                    </t>
+                    <t t-snippet="telecom_plus.s_tenth"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_tenth.svg">
+                       <keywords>tenth, testimonials</keywords>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

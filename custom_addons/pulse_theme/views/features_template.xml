@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_features_custom" name="Custom Features">
+        <section class="pt64 pb64 bg-primary">
+            <div class="container">
+                <h2 class="text-center fw-bold text-white mb-2">Best Features</h2>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                            <i class="fa fa-rocket fa-3x text-primary mb-3"></i>
+                            <h4 class="">Secure Data</h4>
+                            <p class="">Your data is safe with our robust encryptions.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                            <i class="fa fa-shield fa-3x text-primary mb-3"></i>
+                            <h4 class="">24/7 Security</h4>
+                            <p class="">Your data is protected around the clock with our advanced security measures.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center">
+                            <i class="fa fa-money fa-3x text-primary mb-3"></i>
+                            <h4 class="">Best Pricing</h4>
+                            <p class="">We offer the most competitive pricing in the market.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

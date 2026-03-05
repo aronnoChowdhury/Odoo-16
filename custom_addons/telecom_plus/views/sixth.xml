@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_sixth" name="Sixth Section">
+        <section class="s_sixth py-5 bg-white">
+            <div class="container py-5">
+                <div class="row align-items-center g-4">
+                    <div class="col-md-6 mb-3 mb-lg-0">
+                        <div class="text-center text-lg-start">
+                            <img src="https://www.businesstelephone.com/images/isaac/139/139171t550.jpg" alt="Business Communication" class="img-fluid shadow-lg" style="border-radius: 100px 0 100px 0; object-fit: cover;"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="text-start" style="color: #003061;">
+                            <h2 class="display-5 fw-bold">Why Choose Plus Telecom For Your Modern Business Communication?</h2>
+                            <p class="small text-secondary mb-4">We are the Integrated Communication Partner engineered for the modern Irish SME. Pulse Telecom delivers a unified, simple, and future-proof experience that puts you in control. We are committed to providing reliable, clear, and comprehensive business communications solutions, all backed by dedicated, Ireland-based support.</p>
+                            <ul class="list-unstyled mb-5">
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="fa fa-check-circle me-2 text-danger"></i>
+                                    <span class="fw-semibold">Local Support and Experience</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="fa fa-check-circle me-2 text-danger"></i>
+                                    <span class="fw-semibold">Guaranteed Reliability and Uptime</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="fa fa-check-circle me-2 text-danger"></i>
+                                    <span class="fw-semibold">Advanced, Flexible Technology</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="fa fa-check-circle me-2 text-danger"></i>
+                                    <span class="fw-semibold">Complete Solutions in One Package</span>
+                                </li>
+                                <li class="d-flex align-items-center mb-3">
+                                    <i class="fa fa-check-circle me-2 text-danger"></i>
+                                    <span class="fw-semibold">Clear Value and Cost Savings</span>
+                                </li>
+                            </ul>
+                            <div class="d-flex gap-3">
+                                <a href="#" class="btn text-white fw-bold" style="background-color: #003061;">Shop Hardware</a>
+                                <a href="#" class="btn btn-danger text-white fw-bold">Get a Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

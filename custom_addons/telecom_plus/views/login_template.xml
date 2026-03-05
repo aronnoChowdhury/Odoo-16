@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="custom_login_layout" inherit_id="web.login" name="Plus Telecom Login">
+        <xpath expr="//form" position="before">
+            <div class="text-center mb-4">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/PLUS_logo.png" alt="Plus Logo" class="mt-3" style="max-height: 80px;"/>
+                <h4 class="fw-bold mt-3 h4" style="color: #003061;">Plus Telecom</h4>
+                <p class="small text-muted">Enter your credentials to access dashboard</p>
+            </div>
+        </xpath>
+        <xpath expr="//div[contains(@class, 'justify-content-between')]" position="attributes">
+            <attribute name="class">d-grid gap-2 mt-4</attribute>
+        </xpath>
+    </template>
+
+</odoo>

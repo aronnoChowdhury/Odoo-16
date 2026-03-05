@@ -1,0 +1,9 @@
+header{
+    .nav-link {
+        transition: all 0.3s ease;
+        &:hover{
+            font-weight: 600;
+            color: #00A09D !important;
+        }
+    }
+}

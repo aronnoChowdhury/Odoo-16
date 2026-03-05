@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_eighth" name="Eighth Section">
+        <section class="s_eighth py-5">
+            <div class="container text-center py-5 " style="color: #003061;">
+                <div class="mb-4" style="color: #003061;">
+                    <i class="fa fa-quote-right fs-1 text-danger"></i>
+                </div>
+                <h2 class="fw-bold display-5">Real Stroies,real success</h2>
+                <div class="carousel slide" id="testimonialCarousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <p class="h3 fw-semibold">Pulse Telecom has completely upgraded the way our business communicates. The transition to their cloud phone system was smooth, the hardware arrived pre-configured, and their team guided us through every step.</p>
+                                    <div class="mt-4">
+                                        <h4 class="h4 fw-bold">James Whitmore</h4>
+                                        <p class="h5 fw-semibold fst-italic text-danger">Grafton Street, Dublin 2</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <p class="h3 fw-semibold mb-4">
+                                    The call quality is excellent, our remote staff are fully connected, and managing the system is easier than ever. Outstanding service and support from the Pulse team!
+                                </p>
+                                <div class="mt-4">
+                                    <h6 class="fw-bold mb-1" style="color: #003061;">Sarah O'Connor</h6>
+                                    <p class="text-danger fst-italic fw-semibold">Cork City, Ireland</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev btn border-0 shadow-none d-none d-md-block" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <i class="fa fa-long-arrow-left fs-3 text-muted"></i>
+                    </button>
+                    <button class="carousel-control-next btn border-0 shadow-none d-none d-md-block" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <i class="fa fa-long-arrow-right fs-3 text-muted"></i>
+                    </button>
+                    </div>
+                </div>
+            </div>
+         </section>
+    </template>
+
+</odoo>

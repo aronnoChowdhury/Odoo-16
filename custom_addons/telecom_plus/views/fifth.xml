@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="s_fifth" name="Fifth Section">
+    <section class="s_fifth features-container py-5 oe_structure oe_img_bg" style="background-color: #f4f7fa;">
+        <div class="container py-5 text-center">
+            
+            <div class="s_title pb-5" data-name="Title">
+                <h2 class="fw-bold display-5" style="color: #003061;">Powerful Features Included</h2>
+                <p class="text-muted">Everything you need to run a modern business phone system</p>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <div class="col-lg-3 col-md-6 s_col_no_bgcolor">
+                    <div class="feature-card h-100 border-0">
+                        <span class="feature-number">01</span>
+                        <i class="fa fa-phone fs-1 text-white"></i>
+                        <h5 class="text-white mb-3">Seamless<br/>Call Recording</h5>
+                        <p class="text-white mb-0">Easily archive, manage, and download call recordings for training and compliance.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 s_col_no_bgcolor">
+                    <div class="feature-card h-100 border-0">
+                        <span class="feature-number">02</span>
+                        <i class="fa fa-phone fs-1 text-white"></i>
+                        <h5 class="text-white mb-3">Automated<br/>Attendant</h5>
+                        <p class="text-white mb-0">Smart IVR menus and intelligent call routing to guide callers instantly.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 s_col_no_bgcolor">
+                    <div class="feature-card h-100 border-0">
+                        <span class="feature-number">03</span>
+                        <i class="fa fa-phone fs-1 text-white"></i>
+                        <h5 class="text-white mb-3">Mobile &amp; Desktop<br/>Softphone</h5>
+                        <p class="text-white mb-0">Stay connected with full phone system access from any device, anywhere.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 s_col_no_bgcolor">
+                    <div class="feature-card h-100 border-0">
+                        <span class="feature-number">04</span>
+                        <i class="fa fa-phone fs-1 text-white"></i>
+                        <h5 class="text-white mb-3">Multi-Location<br/>Support</h5>
+                        <p class="text-white mb-0">A unified phone system that connects and manages all your business sites.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+</odoo>

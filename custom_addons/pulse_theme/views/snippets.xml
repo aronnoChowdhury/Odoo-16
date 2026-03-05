@@ -1,0 +1,37 @@
+<odoo>
+
+    <template id="pulse_snippets" inherit_id="website.snippets" name="Pulse Theme Snippets">
+
+        <xpath expr="//div[@id='snippet_structure']" position="before">
+
+            <div class="o_panel" id="pulse_snippets_panel">
+                <div class="o_panel_header">Your Home</div>
+                <div class="o_panel_body">
+                    <t t-snippet="pulse_theme.s_custom_hero"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_banner.svg">
+                       <keywords>hero, jumbotron</keywords> 
+                    </t>
+                    <t t-snippet="pulse_theme.s_features_custom"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_features.svg">
+                       <keywords>features, services</keywords> 
+                    </t>
+                    <t t-snippet="pulse_theme.s_shop_properties"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_shop.svg">
+                       <keywords>shop, properties</keywords> 
+                    </t>
+                    <t t-snippet="pulse_theme.s_contact_us_custom"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_contact_us.svg">
+                       <keywords>contact, us</keywords> 
+                    </t>
+                    <t t-snippet="pulse_theme.s_shop_details"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_shop_details.svg">
+                       <keywords>shop, details</keywords> 
+                    </t>
+                </div>
+            </div>
+
+        </xpath>
+
+    </template>
+
+</odoo>

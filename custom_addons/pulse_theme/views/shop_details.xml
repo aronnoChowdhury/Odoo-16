@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_shop_details" name="Shop Details">
+        <section class="s_shop_details bg-light pt64 pb64">
+            <div class="container text-center">
+                <h2 class="fw-bold text-primary">Shop Details</h2>
+                <p class="text-muted">Welcome to **My Odoo Pro** shop! Explore our exclusive collection of premium properties and business solutions. 
+                    From luxury villas to modern office spaces, we provide the best deals tailored just for you.</p>
+                <div class="mt-4">
+                    <span class="badge rounded-pill text-white shadow-sm bg-primary p-2 px-3 me-2">#Premium</span>
+                    <span class="badge rounded-pill text-white shadow-sm bg-primary p-2 px-3 me-2">#Varified</span>
+                    <span class="badge rounded-pill text-white shadow-sm bg-primary p-2 px-3">#BestPrice</span>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

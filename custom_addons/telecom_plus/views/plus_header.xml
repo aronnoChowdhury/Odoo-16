@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="plus_header_inherit" inherit_id="website.layout" name="Plus Telecom Header Full">
+        <xpath expr="//header" position="replace">
+                <header class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+                    <div class="container">
+                        <a href="/" class="navbar-brand">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/PLUS_logo.png" alt="Plus Telecom" style="height:50px"/>
+                        </a>
+
+                        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#plusnavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="plusnavbar">
+                            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                                <li class="nav-item"><a href="/" class="nav-link fw-bold text-dark">Home</a></li>
+                                <li class="nav-item"><a href="/services" class="nav-link fw-bold text-dark">Services</a></li>
+                                <li class="nav-item"><a href="/shop" class="nav-link fw-bold text-dark">Shop</a></li>
+                                <li class="nav-item"><a href="/solutions" class="nav-link fw-bold text-dark">Solutions</a></li>
+                                <li class="nav-item"><a href="/about" class="nav-link fw-bold text-dark">About Pulse</a></li>
+                                <li class="nav-item"><a href="/contact" class="nav-link fw-bold text-dark">Contact</a></li>
+                            </ul>
+
+                            <div class="d-flex flex-column flex-lg-row align-items-center gap-2">
+                                <div class="d-flex align-items-center me-lg-3 mb-2 mb-lg-0">
+                                    <img src="https://images.emojiterra.com/google/android-pie/512px/1f1ee-1f1ea.png" alt="Ireland" style="height:20px" class="me-1"/>
+                                    <span class="small fw-bold">Ireland</span>
+                                </div>
+                                <a href="/web/login" class="btn btn-dark btn-sm w-100 w-lg-auto mb-2 mb-lg-0 fw-bold px-4 rounded-1">Sign In</a>
+                                <a href="/" class="btn btn-danger btn-sm w-100 w-lg-auto fw-bold px-4 rounded-1">Free Trial</a>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+        </xpath>
+    </template>
+</odoo>

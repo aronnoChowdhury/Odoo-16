@@ -1,0 +1,13 @@
+<odoo>
+    <template id="s_custom_hero" name="Custom Hero">
+        <section class="custom-hero py-5 bg-light">
+            <div class="container text-center">
+                <h1>Welcome to My Website</h1>
+                <p>This is my awesome hero section 🚀</p>
+                <a href="#" class="btn btn-primary btn-lg">
+                    Get Started
+                </a>
+            </div>
+        </section>
+    </template>
+</odoo>

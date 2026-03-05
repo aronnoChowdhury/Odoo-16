@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_seventh" name="Seventh Section">
+        <section class="s_seventh py-5" style="background-color: #f4f7fa;">
+            <div class="container py-5">
+                <div class="text-center mb-4" style="color: #003061;">
+                    <h2 class="display-5 fw-bold mb-3">Compleate Communication<br/>Calls &amp; SMS on <span class="text-danger">Any Device, AnyWhere</span></h2>
+                    <p class="opacity-75">The Pulse Telecom gives you instant control. Easily change your caller ID, integrate with CRM systems, 
+                    access multiple phonebooks, manage queues, and unlock a host of features to revolutionize your call experience.</p>
+                </div>
+                <div class="text-center border-b border-secondary">
+                    <img src="https://www.nicepng.com/png/full/355-3552587_apple-products.png" alt="Devices" class="img-fluid"/>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>
