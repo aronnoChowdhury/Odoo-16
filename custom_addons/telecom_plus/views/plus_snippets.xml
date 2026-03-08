@@ -46,6 +46,10 @@
                        t-thumbnail="/website/static/src/img/snippets/thumbnails/s_tenth.svg">
                        <keywords>tenth, testimonials</keywords>
                     </t>
+                    <t t-snippet="telecom_plus.s_contact_plus"
+                       t-thumbnail="/website/static/src/img/snippets/thumbnails/s_contact_plus.svg">
+                       <keywords>contact, plus contact</keywords>
+                     </t>
                 </div>
             </div>
         </xpath>
