@@ -50,6 +50,16 @@ $transition-duration: 0.3s;
     }
 }
 
+//nav-items hover
+.nav-hover {
+    color: black !important;
+    &:hover {
+        color: #003061 !important;
+        transform: scale($hover-scale);
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+}
+
 
 //Login Page
 .o_database_list, .o_home_menu_background {

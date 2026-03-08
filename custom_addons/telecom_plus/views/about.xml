@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_about_plus" name="About Plus">
+        <section class="s_about_plus py-5 bg-light">
+            <div class="container py-4">
+                <div class="text-center" style="color: #003061;">
+                    <h2 class="fw-bold mb-2 display-4">About Plus Telecom</h2>
+                    <p class="">Connecting People, Empowering Future.</p>
+                </div>
+                <div class="py-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 mb-3 mb-lg-0" style="color: #003061;">
+                            <h2 class="fw-bold display-5">Our Journey</h2>
+                            <p class="">Plus Telecom started with a simple vision: to provide seamless connectivity across the nation. Today, we are proud to be a leader in the telecom industry, serving millions of happy customers.</p>
+                            <p class="">We believe in innovation, integrity, and putting our customers first in everything we do.</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <img src="https://www.greatjourneysnz.com/assets/Uploads/Scenic-Plus/Great-Journeys-Scenic-Plus-staff-commentary-websize__ExtRewriteWyJqcGciLCJ3ZWJwIl0_FillWzU3NSw0MzFd.webp" alt="Plus Journey" class="img-fluid rounded-2 shadow-lg"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-5">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card text-center p-3" style="background-color: #003061;">
+                            <h2 class="text-danger fw-bold">10M+</h2>
+                            <p class="text-light fw-bold">Happy Customer</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center p-3" style="background-color: #003061;">
+                            <h2 class="text-danger fw-bold">99.9%</h2>
+                            <p class="text-light fw-bold">Network Coverage</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card text-center p-3" style="background-color: #003061;">
+                            <h2 class="text-danger fw-bold">24/7</h2>
+                            <p class="text-light fw-bold">Customer Support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="py-5">
+                    <div class="row g-3 text-center">
+                        <div class="col-md-6">
+                            <div class="card p-4 border border-danger rounded-4 feature-card">
+                                <div class="card-body text-center">
+                                    <i class="fa fa-rocket fa-3x text-danger mb-3"></i>
+                                    <h2 class="fw-bold">Our Mission</h2>
+                                    <p class="">To empower every individual through high-speed, reliable, and affordable communication services.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card p-4 border border-danger rounded-4 feature-card">
+                                <div class="card-body text-center">
+                                    <i class="fa fa-eye fa-3x text-danger mb-3"></i>
+                                    <h2 class="fw-bold">Our Vision</h2>
+                                    <p class="">To be the most trusted and innovative telecom provider, leading the digital transformation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

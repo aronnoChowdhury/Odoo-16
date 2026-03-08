@@ -50,6 +50,10 @@
                        t-thumbnail="/website/static/src/img/snippets/thumbnails/s_contact_plus.svg">
                        <keywords>contact, plus contact</keywords>
                      </t>
+                     <t t-snippet="telecom_plus.s_about_plus"
+                        t-thumbnail="/website/static/src/img/snippets/thumbnails/s_about_plus.svg">
+                        <keywords>about, plus about</keywords>
+                     </t>
                 </div>
             </div>
         </xpath>

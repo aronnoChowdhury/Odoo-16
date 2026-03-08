@@ -24,6 +24,7 @@ This module provides a custom website layout and design for Plus Telecom.
         "views/eighth.xml",
         "views/ninth.xml",
         "views/tenth.xml",
+        "views/about.xml",
         "views/contact.xml",
         "views/plus_snippets.xml",
         "views/login_template.xml",
