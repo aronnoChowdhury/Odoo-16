@@ -59,6 +59,14 @@ $transition-duration: 0.3s;
         transition: transform 0.3s ease, color 0.3s ease;
     }
 }
+//Shop Hover
+.shop-hover {
+    transition: all $transition-duration ease-in-out;
+    &:hover {
+        transform: scale($hover-scale);
+        transition: transform 0.3s ease;
+    }
+}
 
 
 //Login Page

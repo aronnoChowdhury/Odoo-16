@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_service" name="Plus Services">
+        <section class="s_service py-5" style="background-color: #003061;">
+            <div class="container text-center text-white py-4">
+                <h2 class="fw-bold mb-2 display-5">Exclusive Telecom Services</h2>
+                <p class="mb-5 text-danger fw-bold">Connecting You Beyond Limits</p>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="p-4 border border-secondary rounded-4 h-100 bg-opacity-10 bg-light shadow-sm transition-hover">
+                            <div class="icon-box mb-3">
+                                <i class="fa fa-bolt fa-3x text-danger"></i>
+                            </div>
+                            <h4 class="fw-bold text-danger">Fiber Internet</h4>
+                            <p class="text-danger">Experience lightning-fast fiber optic internet for your home and office with 99.9% uptime.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-4 border border-danger rounded-4 h-100 bg-danger shadow-lg">
+                            <div class="icon-box mb-3 text-white">
+                                <i class="fa fa-building fa-3x"></i>
+                            </div>
+                            <h4 class="fw-bold">Enterprise Solutions</h4>
+                            <p>Dedicated bandwidth and customized telecom infrastructure for large-scale businesses.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-4 border border-secondary rounded-4 h-100 bg-opacity-10 bg-light shadow-sm transition-hover">
+                            <div class="icon-box mb-3">
+                                <i class="fa fa-cloud fa-3x text-danger"></i>
+                            </div>
+                            <h4 class="fw-bold text-danger">Cloud Connectivity</h4>
+                            <p class="text-danger">Secure and reliable cloud hosting solutions to keep your business data accessible everywhere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

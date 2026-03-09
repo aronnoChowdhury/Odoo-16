@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="s_solution" name="Plus Solution">
+        <section class="s_solution py-5" style="background-color: #003061;">
+            <div class="py-4 container">
+                <div class="py-4 text-center text-light">
+                    <h2 class="fw-bold display-4">Our Solutions</h2>
+                    <p class="">Inovative telecom solutions tailored for your business needs.</p>
+                </div>
+                <div class="py-5">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 p-4 text-center shadow-sm">
+                                <div class="card-body" style="color: #003061;">
+                                    <i class="fa fa-users fa-3x mb-3"></i>
+                                    <h4 class="fw-bold">Remort Teams</h4>
+                                    <p class="">Seamless connectivity for your global and remote workforce.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4" style="color: #003061;">
+                            <div class="card h-100 border-0 p-4 text-center shadow-sm">
+                                <div class="card-body" style="color: #003061;">
+                                    <i class="fa fa-line-chart fa-3x mb-3"></i>
+                                    <h4 class="fw-bold">Cost-Saving Audits</h4>
+                                    <p class="">Analyze and optimize your telecom expenses with our expert audits.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100 border-0 p-4 text-center shadow-sm">
+                                <div class="card-body" style="color: #003061;">
+                                    <i class="fa fa-briefcase fa-3x mb-3"></i>
+                                    <h4 class="fw-bold ">Case Studies</h4>
+                                    <p class="">Real-world examples of how we solve complex business challenges.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

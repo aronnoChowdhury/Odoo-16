@@ -54,6 +54,18 @@
                         t-thumbnail="/website/static/src/img/snippets/thumbnails/s_about_plus.svg">
                         <keywords>about, plus about</keywords>
                      </t>
+                     <t t-snippet="telecom_plus.s_solution"
+                        t-thumbnail="/website/static/src/img/snippets/thumbnails/s_solution.svg">
+                        <keywords>solution, plus solution</keywords>
+                     </t>
+                     <t t-snippet="telecom_plus.s_shop"
+                        t-thumbnail="/website/static/src/img/snippets/thumbnails/s_shop.svg">
+                        <keywords>shop, plus shop</keywords>
+                     </t>
+                     <t t-snippet="telecom_plus.s_service"
+                        t-thumbnail="/website/static/src/img/snippets/thumbnails/s_service.svg">
+                        <keywords>shop, plus shop</keywords>
+                     </t>
                 </div>
             </div>
         </xpath>
