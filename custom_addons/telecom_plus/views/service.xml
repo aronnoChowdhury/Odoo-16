@@ -3,7 +3,7 @@
 
     <template id="s_service" name="Plus Services">
         <section class="s_service py-5" style="background-color: #003061;">
-            <div class="container text-center text-white py-4">
+            <div class="container text-center text-white py-5">
                 <h2 class="fw-bold mb-2 display-5">Exclusive Telecom Services</h2>
                 <p class="mb-5 text-danger fw-bold">Connecting You Beyond Limits</p>
                 
@@ -35,6 +35,57 @@
                             </div>
                             <h4 class="fw-bold text-danger">Cloud Connectivity</h4>
                             <p class="text-danger">Secure and reliable cloud hosting solutions to keep your business data accessible everywhere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-5 bg-light">
+                <div class="container py-4">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-6 text-center text-lg-start">
+                            <img src="https://pbs.twimg.com/profile_images/1078166609959608320/Uw_5I3V9_400x400.jpg" alt="Why Choose Us?" class="img-fluid shadow-lg rounded"/>
+                        </div>
+                        <div class="col-lg-6">
+                            <h2 class="fw-bold h3" style="color: #003061;">Why Choose Plus?</h2>
+                            <div class="mt-4">
+                                <div class="d-flex mb-3">
+                                    <i class="fa fa-check-circle fa-2x text-danger me-3"></i>
+                                    <p class=""><strong class="">Uninterrupted Connection:</strong> We ensure 99.9% network availability everywhere.</p>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <i class="fa fa-check-circle fa-2x text-danger me-3"></i>
+                                    <p class=""><strong class="">Expert Support:</strong> 24/7 dedicated customer service for all technical issues.</p>
+                                </div>
+                                <div class="d-flex mb-3">
+                                    <i class="fa fa-check-circle fa-2x text-danger me-3"></i>
+                                    <p class=""><strong class="">Affordable Pricing:</strong> Best-in-class service at prices that fit your budget.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-5" style="background-color: #003061;">
+                <div class="container text-center py-5">
+                    <h2 class="fw-bold text-light h1">What Our Clints Say</h2>
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-4">
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <p class="fst-italic text-muted">"Plus Telecom has transformed how our remote team works. Their fiber connection is rock solid!"</p>
+                                <h6 class="fw-bold mt-3 text-danger">- CEO, Tech Hub</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <p class="fst-italic text-muted">"Excellent support! Whenever we had a problem, their team solved it within minutes."</p>
+                                <h6 class="fw-bold mt-3 text-danger">- Manager, Digital Solution</h6>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="bg-white p-4 rounded shadow-sm">
+                                <p class="fst-italic text-muted">"Affordable data packs and great coverage. Truly the best telecom partner in the country."</p>
+                                <h6 class="fw-bold mt-3 text-danger">- Freelance Designer</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
