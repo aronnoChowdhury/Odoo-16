@@ -1,2 +1,6 @@
 {
+    "python.analysis.extraPaths": [
+        "./odoo18",
+        "./odoo"
+    ]
 }
