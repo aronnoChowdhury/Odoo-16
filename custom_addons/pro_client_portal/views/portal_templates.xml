@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="pro_client_portal_page" name="Professional Client Portal">
+        <t t-call="website.layout">
+            <div id="wrap" class="bg-light min-vh-100">
+                <div class="container py-5">
+                    <h1 class="text-primary fw-bold">Dashboard Working!</h1>
+                    <p class="text-muted">Connection Is Fixed.</p>
+                    <p class="text-muted">
+                        <t t-esc="message"/>
+                    </p>
+                </div>
+                <div class="container py-5">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <a href="/my/projects" class="text-decoration-none">
+                            <div class="card bg-success shadow-sm border-0 p-4 h-100">
+                                <div class="d-flex justify-content-between">
+                                    <div class="text-light text-center align-items-center me-3">
+                                        <i class="fa fa-briefcase fa-3x"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <h5 class="text-light fw-bold">Active Projects:</h5>
+                                        <h2 class="text-light fw-bold"><t t-esc="active_projects or '0'"/></h2>
+                                    </div>
+                                    <div class="text-light text-center align-items-center ms-3">
+                                        <i class="fa fa-briefcase fa-3x opacity-75"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/my/tasks" class="text-decoration-none">
+                            <div class="card bg-primary shadow-sm border-0 p-4 h-100">
+                                <div class="d-flex justify-content-between">
+                                    <div class="text-light text-center align-items-center me-3">
+                                        <i class="fa fa-file-text fa-3x"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <h5 class="text-light fw-bold">Pending Tasks:</h5>
+                                        <h2 class="text-light fw-bold"><t t-esc="pending_tasks or '0'"/></h2>
+                                    </div>
+                                    <div class="text-light text-center align-items-center ms-3">
+                                        <i class="fa fa-file-text fa-3x opacity-75"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="/my/invoices" class="text-decoration-none">
+                            <div class="card bg-warning shadow-sm border-0 p-4 h-100">
+                                <div class="d-flex justify-content-between">
+                                    <div class="text-light text-center align-items-center me-3">
+                                        <i class="fa fa-money fa-3x"></i>
+                                    </div>
+                                    <div class="text-center">
+                                        <h5 class="text-light fw-bold">Total Invoices:</h5>
+                                        <h2 class="text-light fw-bold"><t t-esc="total_invoices or '$0'"/></h2>
+                                    </div>
+                                    <div class="text-light text-center align-items-center ms-3">
+                                        <i class="fa fa-money fa-3x opacity-75"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+</odoo>

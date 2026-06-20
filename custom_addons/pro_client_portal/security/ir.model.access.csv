@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pro_client_portal_pro_client_portal,pro_client_portal.pro_client_portal,model_pro_client_portal_pro_client_portal,base.group_user,1,1,1,1
