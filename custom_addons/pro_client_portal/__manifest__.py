@@ -16,4 +16,9 @@
         'views/pro_header.xml',
         'views/portal_templates.xml',
     ],
+    'assets': {
+        'web.assets_frontend': [
+            'pro_client_portal/static/src/scss/pro_portal.scss',
+        ]
+    }
 }

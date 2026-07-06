@@ -1,0 +1,138 @@
+.no-hover-effect {
+    &:hover {
+        background-color: transparent !important;
+        text-decoration: none !important;
+        
+    }
+}
+.pro-dashboard-header {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    border-radius: 16px;
+    color: #ffffff;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+}
+.pro-card {
+    border: none;
+    border-radius: 16px;
+    color: #ffffff !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-height: 180px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        transform: translate(-6px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.15);
+
+        .pro-icon-bg {
+            transform: scale(1.15) rotate(5deg);
+            opacity: 0.25;
+        }
+    }
+}
+.pro-card-project {
+    background: linear-gradient(135deg, #0d9488, #2dd4bf);
+}
+.pro-card-tasks {
+    background: linear-gradient(135deg, #4f46e5, #818cf8);
+}
+.pro-card-invoices {
+    background: linear-gradient(135deg, #ea580c, #fb923c);
+}
+
+.pro-card-content {
+    position: relative;
+    z-index: 10;
+}
+
+.pro-icon-bg {
+    position: absolute;
+    right: 15px;
+    bottom: -15px;
+    font-size: 6.5rem;
+    opacity: 0.12;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: none;
+}
+
+header {
+    background: linear-gradient(90deg, #0f172a, #1e293b) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    .navbar-brand {
+        letter-spacing: 0.5px;
+    }
+    .nav-link {
+        transition: all 0.3s ease-in-out;
+    }
+    .dropdown-menu {
+        border-radius: 12px;
+        background-color: white;
+        .dropdown-item {
+            color: #334155;
+            font-weight: 0.5rem;
+            transition: all 0.2s ease;
+            &:hover {
+                background-color: #f1f5f9;
+                color: #0f172a;
+            }
+            &.text-danger:hover {
+                background-color: #fee2e2;
+                color: #dc2626;
+            }
+        }
+    }
+}
+
+.trnasition-hover {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 20px -5px rgba(0,0,0,0.1),  0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+.custom-portal-table {
+    th {
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border: none;
+        font-size: 0.85rem;
+    }
+    td {
+        font-size: 0.95rem;
+        border-color: #f1f5f9;
+    }
+    tbody tr:hover {
+        background-color: #f8fafc;
+    }
+}
+
+
+.badge-status-in-progress {
+    background-color: #dbeafe !important;
+    color: #1d4ed8 !important;
+}
+.badge-status-done {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.badge-status-paid {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.badge-status-unpaid {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+.badge-status-draft {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+}
