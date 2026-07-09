@@ -59,3 +59,12 @@ class ProClientPortal(http.Controller):
             'tasks' : tasks,
         }
         return request.render('pro_client_portal.pro_client_portal_tasks_page', values)
+    
+    @http.route('/my_portal/invoices', auth="user", website=True, type="http")
+    def my_portal_invoices(self, **kw):
+        partner_id = request.env.user.partner_id.id
+        invoices = request.env['account.move'].sudo().search([('move_type', '=', 'out_invoice'), ('state', '=', 'posted'), ('partner_id', '=', partner_id)])
+        values = {
+            'invoices' : invoices,
+        }
+        return request.render('pro_client_portal.pro_client_portal_invoices_page', values)

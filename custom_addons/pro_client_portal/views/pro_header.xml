@@ -12,16 +12,20 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto" t-if="not env.user._is_public()">
                         <li class="nav-item">
-                            <a href="/my_portal" class="nav-link fw-bold text-light opacity-75 hover-opacity-100 px-3">Home</a>
+                            <a href="/my_portal" class="nav-link fw-bold text-light opacity-75 hover-opacity-100 px-3"
+                            t-attf-attribute_name="nav-link #{request.httprequest.path == '/my_portal' and 'active' or ''}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/my_portal/projects" class="nav-link text-light fw-bold px-3 opacity-75 hover-opacity-100">Projects</a>
+                            <a href="/my_portal/projects" class="nav-link text-light fw-bold px-3 opacity-75 hover-opacity-100"
+                            t-attf-attribute_name="nav-link #{request.httprequest.path == '/my_portal/projects' and 'active' or ''}">Projects</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/my_portal/tasks" class="nav-link text-light fw-bold px-3 opacity-75 hover-opacity-100">Tasks</a>
+                            <a href="/my_portal/tasks" class="nav-link text-light fw-bold px-3 opacity-75 hover-opacity-100"
+                            t-attf-attribute_name="nav-link #{request.httprequest.path == '/my_portal/tasks' and 'active' or ''}">Tasks</a>
                         </li>
                         <li class="nav-item">
-                            <a href="/my_portal/invoices" class="nav-link text-light fw-bold px-3 opacity-75 hover-opacity-100">Invoices</a>
+                            <a href="/my_portal/invoices" class="nav-link text-light fw-bold px-3 opacity-75 hover-opacity-100"
+                            t-attf-attribute_name="nav-link #{request.httprequest.path == '/my_portal/invoices' and 'active' or ''}">Invoices</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto">

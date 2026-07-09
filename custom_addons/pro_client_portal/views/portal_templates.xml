@@ -162,5 +162,61 @@
             </div>
         </t>
     </template>
+<template id="pro_client_portal_invoices_page" name="Portal Invoices">
+    <t t-call="website.layout">
+        <div class="bg-light min-vh-100 py-5" id="wrap">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="text-dark fw-bold m-0">My Invoices</h2>
+                    <a href="/my_portal" class="btn btn-outline-secondary btn-sm rounded-pill py-1.5 px-3">
+                        <i class="fa fa-arrow-left me-1"></i>Back to Dashboard
+                    </a>
+                </div>
+                <div class="card shadow-sm border-0 rounded-3 overflow-hidden" t-if="invoices">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0 custom-portal-table">
+                            <thead class="table-dark">
+                                <tr class="">
+                                    <th class="ps-4 py-3">Invoice Number</th>
+                                    <th class="py-3">Invoice Date</th>
+                                    <th class="py-3">Due Date</th>
+                                    <th class="py-3 text-end">Total Amount</th>
+                                    <th class="py-3 text-center ps-4">Payment Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <t t-foreach="invoices" t-as="invoice">
+                                    <tr class="">
+                                        <td class="ps-4 py-3 fw-bold text-dark" t-esc="invoice.name if invoice.state != 'draft' else ('Draft')"/>
+                                        <td class="text-muted py-3" t-esc="invoice.invoice_date" t-options='{"widget": "date"}'/>
+                                        <td class="text-muted py-3" t-esc="invoice.invoice_date_due" t-options='{"widget" : "date"}'/>
+                                        <td class="fw-bold text-dark py-3 text-end">
+                                            <t t-esc="invoice.amount_total" t-options='{"widget" : "monetary", "display_currency": invoice.currency_id}'/>
+                                        </td>
+                                        <td class="text-center py-3 ps-4">
+                                            <span class="rounded-pill fw-semibold py-2 px-3 badge"
+                                            t-attf-attribute_name="badge-status-#{'paid' if invoice.payment_state == 'paid' else ('unpaid' if invoice.payment_state in ['not_paid', 'reserved'] else 'draft')}"
+                                            >
+                                                <t t-if="invoice.payment_state == 'paid'">Paid</t>
+                                                <t t-elif="invoice.payment_state in ['not_paid', 'reserved']">Unpaid</t>
+                                                <t t-else="">Draft / Other</t>
+                                        </span>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="text-center shadow-sm rounded-3 py-5 mt-4 bg-white" t-else="">
+                    <div class="text-muted mb-3 "><i class="fa fa-credit-card fa-4x"></i></div>
+                    <h4 class="text-dark fw-bold">No Invoice Found</h4>
+                    <p class="text-muted mb-0">No invoice have been billed to your account yet.</p>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
 
 </odoo>
