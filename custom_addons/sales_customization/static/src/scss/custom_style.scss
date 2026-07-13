@@ -1,0 +1,17 @@
+.o_form_view {
+    .card {
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+    }
+}
+.o_list_view{
+    .o_data_row{
+        &:hover{
+            background-color: #e9ecef !important;
+        }
+    }
+    th {
+        color: #495057;
+    }
+}
+
