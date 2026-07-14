@@ -4,6 +4,10 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     commission_total = fields.Float(string='Total Commission', compute='_compute_commission', store=True)
+    commission_state = fields.Selection([
+        ('draft', 'Draft'),
+        ('confirmed', 'Confirmed')
+    ], string='Commission Status', default='draft', readonly=True)
 
     @api.depends('order_line.price_subtotal', 'order_line.product_id')
     def _compute_commission(self):
@@ -15,3 +19,17 @@ class SaleOrder(models.Model):
                 else:
                     total_comm += line.price_subtotal * 0.05
             order.commission_total = total_comm
+
+    def action_confirm_commission(self):
+        for order in self :
+            order.commission_state = 'confirmed'
+            return {
+                'type': 'ir.actions.client',
+                'tag': 'display_notification',
+                'params':{
+                    'title': 'Success!',
+                    'message': 'Commission has been confirmed successfully.',
+                    'type': 'success',
+                    'sticky': False,
+                }
+            }

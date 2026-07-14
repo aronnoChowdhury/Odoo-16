@@ -31,4 +31,19 @@
         </field>
     </record>
 
+    <record id="view_order_form_inherit_commission_button" model="ir.ui.view">
+        <field name="name">sale.order.form.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <button class="btn-primary" name="action_confirm_commission" string="Confirmed Commission" type="object" attrs="{'invisible': [('commission_state', '=', 'confirmed')]}"/>
+                <field name="commission_state" widget="statusbar"/>
+            </xpath>
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="commission_state" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
