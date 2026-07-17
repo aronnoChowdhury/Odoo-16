@@ -6,6 +6,7 @@
     'summary' : 'Advanced Sales Comunication and Custom Dashboard',
     'depends' : ['sale_management', 'web',],
     'data' : [
+        'security/ir.model.access.csv',
         'views/sales_order_views.xml',
     ],
     'assets' : {
