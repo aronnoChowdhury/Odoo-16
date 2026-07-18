@@ -7,12 +7,12 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//sheet" position="before">
-                <div class="card mb-3 shadow-sm" style="border-left: 5x solid #714B67">
+                <div class="card mb-3 shadow-sm" style="border-left: 5px solid #714B67">
                     <div class="card-body">
                         <h3 class="card-title text-primary">Commission Details</h3>
                         <p class="card-text">
                             <strong class="">Total Commission: </strong>
-                            <field name="commission_total" wedget="monetary" options="{'currency_field': 'currency_id'}" class="fw-bold fs-4"/>
+                            <field name="commission_total" widget="monetary" options="{'currency_field': 'currency_id'}" class="fw-bold fs-4"/>
                         </p>
                     </div>
                 </div>

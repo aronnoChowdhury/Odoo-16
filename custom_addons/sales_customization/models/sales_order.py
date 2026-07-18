@@ -21,15 +21,15 @@ class SaleOrder(models.Model):
             order.commission_total = total_comm
 
     def action_confirm_commission(self):
-        for order in self :
+        for order in self:
             order.commission_state = 'confirmed'
-            return {
-                'type': 'ir.actions.client',
-                'tag': 'display_notification',
-                'params':{
-                    'title': 'Success!',
-                    'message': 'Commission has been confirmed successfully.',
-                    'type': 'success',
-                    'sticky': False,
-                }
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': 'Success!',
+                'message': 'Commission has been confirmed successfully.',
+                'type': 'success',
+                'sticky': False,
             }
+        }

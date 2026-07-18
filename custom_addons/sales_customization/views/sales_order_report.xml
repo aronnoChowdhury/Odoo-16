@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_commission" model="ir.actions.report">
+        <field name="name">Commission Report</field>
+        <field name="model">sale.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">sales_customization.report_commission_document</field>
+        <field name="report_file">sales_customization.report_commission_document</field>
+        <field name="print_report_name">'Commission - %s' % (object.name)</field>
+        <field name="binding_model_id" ref="sale.model_sale_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_commission_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="">Commission Report for <span t-field="doc.name"/></h2>
+                        <table class="table table-bordered">
+                            <thead class="">
+                                <tr class="">
+                                    <th class="">Product</th>
+                                    <th class="">Subtotal</th>
+                                    <th class="">Commission</th>
+                                </tr>
+                            </thead>
+                            <tbody class="">
+                                <tr t-foreach="doc.order_line" t-as="line">
+                                    <td class=""><span t-field="line.product_id.name"/></td>
+                                    <td class=""><span t-field="line.price_subtotal"/></td>
+                                    <td class="">
+                                        <t t-if="line.product_id.categ_id.name == 'All / Saleable'">
+                                            <span t-esc="line.price_subtotal * 0.10" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/> (10%)
+                                        </t>
+                                        <t t-else="">
+                                            <span t-esc="line.price_subtotal * 0.05" t-options='{"widget": "monetary", "display_currency": doc.currency_id}'/> (5%)
+                                        </t>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h3 class="text-right">Total Commission: <span t-field="doc.commission_total"/></h3>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
