@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_resturent_table_tree" model="ir.ui.view">
+        <field name="name">resturent.table.tree</field>
+        <field name="model">resturent.table</field>
+        <field name="arch" type="xml">
+            <tree string="Resturent Tables">
+                <field name="name"/>
+                <field name="capacity"/>
+                <field name="status" widget="badge" decoration-success="status == 'free'" decoration-danger="status == 'occupied'" decoration-warning="status == 'reserved'" />
+            </tree>
+        </field>
+    </record>
+    
+    <record id="view_resturent_table_form" model="ir.ui.view">
+        <field name="name">resturent.table.form</field>
+        <field name="model">resturent.table</field>
+        <field name="arch" type="xml">
+            <form string="Resturent Table">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="capacity"/>
+                        <field name="status"/>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_resturent_table" model="ir.actions.act_window">
+        <field name="name">Tables</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">resturent.table</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_resturent_root" name="Restaurant ERP" sequence="10"/>
+    <menuitem id="menu_resturent_config" name="Configuration" parent="menu_resturent_root" sequence="20"/>
+    <menuitem id="menu_resturent_tables" name="Tables" parent="menu_resturent_root" action="action_resturent_table" sequence="10"/>
+
+
+</odoo>
