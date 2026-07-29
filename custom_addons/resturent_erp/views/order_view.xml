@@ -1,6 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    
+    <record id="sequence_resaurant_order" model="ir.sequence">
+        <field name="name">Restaurant Sequence Order</field>
+        <field name="code">restaurant.order</field>
+        <field name="prefix">ORD</field>
+        <field name="padding">4</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+    <record id="view_restaurant_order_tree" model="ir.ui.view">
+        <field name="name">restaurant.order.view</field>
+        <field name="model">restaurant.order</field>
+        <field name="arch" type="xml">
+            <tree string="Restaurant Orders">
+                <field name="name"/>
+                <field name="table_id"/>
+                <field name="customer_name"/>
+                <field name="amount_total"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-warning="state == 'preparing'" decoration-success="state == 'ready' or state == 'compleated'" decoration-danger="state == 'cancelled'"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_restaurant_order_form" model="ir.ui.view">
+        <field name="name">restaurant.order.view</field>
+        <field name="model">restaurant.order</field>
+        <field name="arch" type="xml">
+            <form string="Rastaurant Order">
+                <header class="">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,preparing,ready,compleated"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1 class=""><field name="name" readonly="1"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="table_id"/>
+                            <field name="customer_name"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="" string="Order Items">
+                            <field name="order_line_ids">
+                                <tree editable="bottom">
+                                    <field name="dish_name"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="price_subtotal"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="amount_total" class="oe_subtotal_footer_separator"></field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_restaurant_order" model="ir.actions.act_window">
+        <field name="name">Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">restaurant.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+        id="menu_restaurant_order"
+        name="Orders"
+        action="action_restaurant_order"
+        parent="menu_resturent_root"
+        sequence="10"/>
 
 </odoo>
