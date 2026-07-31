@@ -10,6 +10,11 @@
         'views/table_view.xml',
         'views/order_view.xml',
     ],
+    'assets': {
+        'web.assets_backend':[
+            'resturent_erp/static/src/scss/restaurant_style.scss',
+        ]
+    },
     'installable': True,
     'application': True,
     'auto_install': False,

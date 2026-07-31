@@ -12,6 +12,30 @@
             </tree>
         </field>
     </record>
+
+    <record id="view_resturent_model_kanban" model="ir.ui.view">
+        <field name="name">resturent.table.kanban</field>
+        <field name="model">resturent.table</field>
+        <field name="arch" type="xml">
+            <kanban class="o_restaurant_dashboard">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click restaurant_card">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="card-title"><field name="name"/></strong>
+                                </div>
+                                <field name="status" widget="kanban_badge_selection" options="{'classes': {'free': 'success', 'occupied': 'danger', 'reserved': 'warning'}}"/>
+                            </div>
+                            <div class="o_kanban_record_body mt-2">
+                                <span style="color: #94a3b8 !important;">Capacity: </span><strong style="color: #f8fafc !important;"><field name="capacity" /></strong>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
     
     <record id="view_resturent_table_form" model="ir.ui.view">
         <field name="name">resturent.table.form</field>
@@ -34,7 +58,7 @@
         <field name="name">Tables</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">resturent.table</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
     </record>
 
     <menuitem id="menu_resturent_root" name="Restaurant ERP" sequence="10"/>
