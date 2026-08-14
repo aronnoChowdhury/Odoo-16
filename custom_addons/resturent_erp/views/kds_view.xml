@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_restaurant_kds_kanban" model="ir.ui.view">
+        <field name="name">restaurant.kds.view.kanban</field>
+        <field name="model">restaurant.order</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by = "state" class="o_kanban_dashboard o_restaurant_dashboard" create="0">
+                <field name="name" />
+                <field name="state" />
+                <field name="table_id" />
+                <field name="customer_name" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click oe_kanban_card restaurant_order_card">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title"><field name="name" /></strong>
+                                </div>
+                                <field name="state" widget="kanban_badge_selection" options="{'classes': {'draft': 'info', 'preparing': 'warning', 'ready': 'success', 'completed': 'success', 'cancelled': 'danger'}}"/>
+                            </div>
+                            <div class="o_kanban_record_body mt-2">
+                                <div class=""><strong class="">Table: </strong><field name="table_id" /></div>
+                                <div class=""><strong class="">Customer: </strong><field name="customer_name"></field></div>
+                                <div class="mt-2 text-muted">
+                                    <i class="">Order Items: Click card to view details.</i>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom mt-3">
+                                <div class="oe_kanban_bottom_left">
+                                    <button name="action_mark_as_ready" type="object" class="btn btn-success btn-sm"
+                                    attrs="{'invisible': [('state', 'in', ['ready', 'completed', 'cancelled'])]}">
+                                        <i class="fa fa-check"/> Mark as Ready
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_restaurant_kds" model="ir.actions.act_window">
+        <field name="name">Kitchen Display</field>
+        <field name="res_model">restaurant.order</field>
+        <field name="view_mode">kanban,form</field>
+        <field name="domain">[('state', 'in', ['draft', 'preparing', 'ready'])]</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No active kitchen orders found!
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_restaurant_kds"
+        name="Kitchen Display"
+        action="action_restaurant_kds"
+        parent="menu_resturent_root"
+        sequence="15"/>
+
+</odoo>

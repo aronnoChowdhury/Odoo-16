@@ -28,7 +28,7 @@
                                 <field name="status" widget="kanban_badge_selection" options="{'classes': {'free': 'success', 'occupied': 'danger', 'reserved': 'warning'}}"/>
                             </div>
                             <div class="o_kanban_record_body mt-2">
-                                <span style="color: #94a3b8 !important;">Capacity: </span><strong style="color: #f8fafc !important;"><field name="capacity" /></strong>
+                                <span style="color: #94a3b8 !important;">Capacity: </span><strong style="color: #94a3b8 !important;"><field name="capacity" /></strong>
                             </div>
                         </div>
                     </t>

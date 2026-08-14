@@ -2,49 +2,43 @@ $restaurant-dark-bg: #1e293b;
 $restaurant-card-bg: #0f172a;
 $restaurant-border-color: #334155;
 $restaurant-text-color: #f8fafc;
-$restaurent-muted-color: #94a3b8;
+$restaurant-muted-color: #94a3b8;
 $restaurant-primary: #f97316; // Odoo Signature Orange
 
-.o_restaurant_dashboard {
-    background-color: $restaurant-dark-bg;
-    color: $restaurant-text-color;
+
+.badge.text-bg-success,
+.badge.bg-success,
+.badge.decoration-success {
+    background-color: #22c55e !important;
+    color: #ffffff !important;
+}
+
+.badge.text-bg-danger,
+.badge.bg-danger,
+.badge.decoration-danger {
+    background-color: #ef4444 !important;
+    color: #ffffff !important;
+}
+
+.badge.text-bg-warning,
+.badge.bg-warning,
+.badge.decoration-warning {
+    background-color: #f97316 !important;
+    color: #ffffff !important;
+}
+
+
+.o_restaurant_dashboard,
+.o_kanban_dashboard {
+    background-color: $restaurant-dark-bg !important;
+    color: $restaurant-text-color !important;
     min-height: 100vh;
     padding: 20px;
 
-    .restaurant_card {
-        background-color: $restaurant-card-bg;
-        border: 1px solid $restaurant-border-color;
-        border-radius: 8px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        padding: 20px;
-        margin-bottom: 20px;
-        
-        &:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .card-title {
-            color: $restaurant-primary;
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-        }
-
-        .text-muted {
-            color: $restaurent-muted-color !important;
-        }
-
-        .card-value {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: $restaurant-text-color;
-        }
-    }
-
+    // Table view standard lists group status colors
     .table-status-free {
         background-color: #22c55e !important;
-        color: #ffffff;
+        color: #ffffff !important;
         padding: 4px 10px;
         border-radius: 4px;
         font-weight: 600;
@@ -52,7 +46,7 @@ $restaurant-primary: #f97316; // Odoo Signature Orange
 
     .table-status-occupied {
         background-color: #ef4444 !important;
-        color: #ffffff;
+        color: #ffffff !important;
         padding: 4px 10px;
         border-radius: 4px;
         font-weight: 600;
@@ -60,9 +54,55 @@ $restaurant-primary: #f97316; // Odoo Signature Orange
 
     .table-status-reserved {
         background-color: #eab308 !important;
-        color: #000000;
+        color: #000000 !important;
         padding: 4px 10px;
         border-radius: 4px;
         font-weight: 600;
+    }
+
+    .restaurant_card,
+    .restaurant_order_card,
+    .oe_kanban_card.restaurant_order_card {
+        background-color: $restaurant-card-bg !important;
+        border: 1px solid $restaurant-border-color !important;
+        color: $restaurant-text-color !important;
+        border-radius: 8px !important;
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+
+        &:hover {
+            transform: translateY(-4px) !important;
+            border-color: $restaurant-primary !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4) !important;
+        }
+
+        .card-title,
+        .o_kanban_record_title {
+            color: $restaurant-primary !important;
+            font-weight: 700 !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 10px !important;
+        }
+
+        .text-muted {
+            color: $restaurant-muted-color !important;
+        }
+
+        .card-value {
+            font-size: 1.8rem !important;
+            font-weight: bold !important;
+            color: $restaurant-text-color !important;
+        }
+
+        strong {
+            color: $restaurant-text-color !important;
+        }
+
+        span,
+        div:not(.o_kanban_record_top) {
+            color: $restaurant-muted-color !important;
+        }
     }
 }

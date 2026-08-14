@@ -9,6 +9,8 @@
         'security/ir.model.access.csv',
         'views/table_view.xml',
         'views/order_view.xml',
+        'views/menu_item_view.xml',
+        'views/kds_view.xml',
     ],
     'assets': {
         'web.assets_backend':[

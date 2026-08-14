@@ -30,13 +30,17 @@ class RestaurantOrder(models.Model):
         for order in self:
             order.amount_total = sum(line.price_subtotal for line in order.order_line_ids)
 
+    def action_mark_as_ready(self):
+        for order in self:
+            order.state = 'ready'
+
 
 class RestaurantOrderLine(models.Model):
     _name = "restaurant.order.line"
     _description = "Restaurant Order Line"
 
     order_id = fields.Many2one('restaurant.order', string='Order Reference', required=True, ondelete='cascade')
-    dish_name = fields.Char(string='Dish Name', required=True)
+    menu_item_id = fields.Many2one('restaurant.menu.item', string='Food Item', required=True)
     quantity = fields.Float(string='Quantity', default=1.0)
     price_unit = fields.Float(string='Price Unit', required=True)
     price_subtotal = fields.Float(string='Subtotal', compute='_compute_price_subtotal', store=True)
@@ -45,3 +49,4 @@ class RestaurantOrderLine(models.Model):
     def _compute_price_subtotal(self):
         for line in self:
             line.price_subtotal = line.quantity * line.price_unit
+            
