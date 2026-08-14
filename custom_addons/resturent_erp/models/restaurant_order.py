@@ -19,6 +19,12 @@ class RestaurantOrder(models.Model):
         ('cancelled', 'Cancelled')
     ])
 
+    payment_state = fields.Selection([
+        ('not_paid', 'Not Paid'),
+        ('partial', 'Partially Paid'),
+        ('paid', 'Paid')
+    ], string='Payment Status', default='not_paid', tracking=True)
+
     @api.model
     def create(self, vals):
         if vals.get('name', 'New') == 'New':
@@ -33,6 +39,16 @@ class RestaurantOrder(models.Model):
     def action_mark_as_ready(self):
         for order in self:
             order.state = 'ready'
+
+    def action_mark_as_completed(self):
+        for order in self:
+            order.state = 'compleated'
+
+    def action_confirm_payment(self):
+        for order in self:
+            if order.state != 'compleated':
+                raise UserError("Only compleated orders can be paid.")
+            order.payment_state = 'paid'
 
 
 class RestaurantOrderLine(models.Model):

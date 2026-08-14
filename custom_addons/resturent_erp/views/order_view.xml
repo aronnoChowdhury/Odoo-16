@@ -18,7 +18,7 @@
                 <field name="table_id"/>
                 <field name="customer_name"/>
                 <field name="amount_total"/>
-                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-warning="state == 'preparing'" decoration-success="state == 'ready' or state == 'completed'" decoration-danger="state == 'cancelled'"/>
+                <field name="state" widget="badge" decoration-info="state == 'draft'" decoration-warning="state == 'preparing'" decoration-success="state == 'ready' or state == 'compleated'" decoration-danger="state == 'cancelled'"/>
             </tree>
         </field>
     </record>
@@ -35,7 +35,7 @@
                                 <div class="o_kanban_record_headings">
                                     <strong class="o_kanban_record_title"><field name="name"/></strong>
                                 </div>
-                                <field name="state" widget="kanban_label_selection" options="{'classes': {'draft': 'info', 'preparing': 'warning', 'ready': 'success', 'completed': 'success', 'cancelled': 'danger'}}"/>
+                                <field name="state" widget="kanban_label_selection" options="{'classes': {'draft': 'info', 'preparing': 'warning', 'ready': 'success', 'compleated': 'success', 'cancelled': 'danger'}}"/>
                             </div>
                             <div class="o_kanban_record_body">
                                 <div class=""><strong class="">Table: </strong><field name="table_id" /></div>
@@ -59,7 +59,9 @@
         <field name="arch" type="xml">
             <form string="Restaurant Order">
                 <header class="">
-                    <field name="state" widget="statusbar" statusbar_visible="draft,preparing,ready,completed"/>
+                    <button name="action_mark_as_completed" string="Mark as Completed" type="object" class="btn-primary" attrs="{'invisible': [('state', 'in', ['compleated', 'cancelled'])]}"/>
+                    <button name="action_confirm_payment" string="Confirm Payment" type="object" class="btn-success" attrs="{'invisible': ['|', ('state', '!=', 'compleated'), ('payment_state', '=', 'paid')]}"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,preparing,ready,compleated"/>
                 </header>
                 <sheet>
                     <div class="oe_title">
@@ -69,6 +71,9 @@
                         <group>
                             <field name="table_id"/>
                             <field name="customer_name"/>
+                        </group>
+                        <group>
+                            <field name="payment_state" widget="badge" decoration-success="payment_state == 'paid'" decoration-warning="payment_state == 'partial'" decoration-danger="payment_state == 'not_paid'" />
                         </group>
                     </group>
                     <notebook>

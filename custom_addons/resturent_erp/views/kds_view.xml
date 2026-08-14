@@ -5,7 +5,7 @@
         <field name="name">restaurant.kds.view.kanban</field>
         <field name="model">restaurant.order</field>
         <field name="arch" type="xml">
-            <kanban default_group_by = "state" class="o_kanban_dashboard o_restaurant_dashboard" create="0">
+            <kanban default_group_by = "state" class="o_kanban_dashboard o_restaurant_dashboard">
                 <field name="name" />
                 <field name="state" />
                 <field name="table_id" />
