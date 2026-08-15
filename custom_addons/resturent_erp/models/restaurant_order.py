@@ -11,6 +11,8 @@ class RestaurantOrder(models.Model):
     order_line_ids = fields.One2many('restaurant.order.line', 'order_id', string='Order Line')
     amount_total = fields.Float(string='Total Amount', compute='_compute_amount_total', store=True)
 
+    date_order = fields.Datetime(string='Order Date', default=fields.Datetime.now, tracking=True)
+
     state = fields.Selection([
         ('draft', 'Draft'),
         ('preparing', 'Preparing'),
@@ -51,6 +53,27 @@ class RestaurantOrder(models.Model):
             order.payment_state = 'paid'
 
 
+    @api.model
+    def _get_dashboard_matrics(self):
+        today = fields.Date.today()
+        domain = [('date_order', '>=', f'{today} 00:00:00'), ('date_order', '<=', f'{today} 23:59:59'), ('state', '=', 'compleated')]
+
+        today_orders = self.search(domain)
+        today_revenue = sum(today_order.mapped('amount_total'))
+
+        total_tables = self.env['resturent.table'].search_count([])
+        occupied_tables = self.env['restaurant.order'].search_count([('state', 'in', ['draft', 'preparing', 'ready'])])
+
+        occupancy_rate = 0
+        if total_tables > 0:
+            occupancy_rate = int((occupied_tables / total_tables) * 100)
+
+        return {
+            'today_revenue': today_revenue,
+            'occupancy_rate': occupancy_rate,
+            'occupied_tables': occupied_tables
+        }
+
 class RestaurantOrderLine(models.Model):
     _name = "restaurant.order.line"
     _description = "Restaurant Order Line"
@@ -60,6 +83,11 @@ class RestaurantOrderLine(models.Model):
     quantity = fields.Float(string='Quantity', default=1.0)
     price_unit = fields.Float(string='Price Unit', required=True)
     price_subtotal = fields.Float(string='Subtotal', compute='_compute_price_subtotal', store=True)
+
+    @api.onchange('menu_item_id')
+    def _onchange_menu_item_id(self):
+        if self.menu_item_id:
+            self.price_unit = self.menu_item_id.price
 
     @api.depends('quantity', 'price_unit')
     def _compute_price_subtotal(self):

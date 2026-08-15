@@ -11,6 +11,7 @@
         'views/order_view.xml',
         'views/menu_item_view.xml',
         'views/kds_view.xml',
+        'views/dashboard_view.xml',
     ],
     'assets': {
         'web.assets_backend':[

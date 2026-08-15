@@ -95,12 +95,34 @@
             </form>
         </field>
     </record>
+t
+    <record id="view_restaurant_order_graph" model="ir.ui.view">
+        <field name="name">restaurant.order.graph</field>
+        <field name="model">restaurant.order</field>
+        <field name="arch" type="xml">
+            <graph string="Sales Analysis" type="bar">
+                <field name="date_order" interval="day" />
+                <field name="amount_total" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_restaurant_order_pivot" model="ir.ui.view">
+        <field name="name">restaurant.order.pivot</field>
+        <field name="model">restaurant.order</field>
+        <field name="arch" type="xml">
+            <pivot string="Sales Analysis">
+                <field name="date_order" type="row" />
+                <field name="amount_total" type="measure" />
+            </pivot>
+        </field>
+    </record>
 
     <record id="action_restaurant_order" model="ir.actions.act_window">
         <field name="name">Orders</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">restaurant.order</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,tree,form,graph,pivot</field>
     </record>
 
     <menuitem

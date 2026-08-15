@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_restaurant_dashboard_new" model="ir.actions.act_window">
+        <field name="name">Dashboard &amp; Overview</field>
+        <field name="res_model">restaurant.order</field>
+        <field name="view_mode">kanban,graph,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Welcome to Restaurant ERP!
+            </p>
+        </field>
+    </record>
+   
+    <menuitem
+        id="menu_restaurant_dashboard"
+        name="Dashboard"
+        action="action_restaurant_dashboard_new"
+        parent="menu_resturent_root"
+        sequence="1"/>
+
+</odoo>
