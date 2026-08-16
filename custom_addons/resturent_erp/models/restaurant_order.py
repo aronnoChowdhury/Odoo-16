@@ -54,12 +54,12 @@ class RestaurantOrder(models.Model):
 
 
     @api.model
-    def _get_dashboard_matrics(self):
+    def get_dashboard_metrics(self):
         today = fields.Date.today()
         domain = [('date_order', '>=', f'{today} 00:00:00'), ('date_order', '<=', f'{today} 23:59:59'), ('state', '=', 'compleated')]
 
         today_orders = self.search(domain)
-        today_revenue = sum(today_order.mapped('amount_total'))
+        today_revenue = sum(today_orders.mapped('amount_total'))
 
         total_tables = self.env['resturent.table'].search_count([])
         occupied_tables = self.env['restaurant.order'].search_count([('state', 'in', ['draft', 'preparing', 'ready'])])

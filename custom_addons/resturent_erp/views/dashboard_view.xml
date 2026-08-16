@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="action_restaurant_dashboard_new" model="ir.actions.act_window">
-        <field name="name">Dashboard &amp; Overview</field>
-        <field name="res_model">restaurant.order</field>
-        <field name="view_mode">kanban,graph,tree,form</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                Welcome to Restaurant ERP!
-            </p>
+    <record id="view_restaurant_dashboard_form" model="ir.ui.view">
+        <field name="name">restaurant.dashboard.form</field>
+        <field name="model">board.board</field>
+        <field name="arch" type="xml">
+            <form string="Restaurant Dashboard">
+                <header>
+                    <h2 style="margin: 0; font-weight: bold; color: #333;">Restaurant Executive Dashboard</h2>
+                </header>
+
+                <board style="margin-top: 10px;">
+                    <column>
+                        <action string="Today's Orders &amp; Metrics" name="%(resturent_erp.action_restaurant_order)d"/>
+                    </column>
+
+                    <column>
+                        <action string="Sales Graph Overview" name="%(resturent_erp.action_restaurant_order)d"/>
+                    </column>
+                </board>
+            </form>
         </field>
+    </record>
+
+    <record id="action_restaurant_dashboard_window" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="resturent_erp.view_restaurant_dashboard_form"/>
+        <field name="target">current</field>
     </record>
    
     <menuitem
         id="menu_restaurant_dashboard"
         name="Dashboard"
-        action="action_restaurant_dashboard_new"
+        action="action_restaurant_dashboard_window"
         parent="menu_resturent_root"
         sequence="1"/>
 

@@ -4,7 +4,7 @@
     'category': 'Industry',
     'summary': 'Professional Resturent ERP with POS, KDS, and Table Management',
     'author': 'Aronno Chowdhury',
-    'depends': ['base', 'web'],
+    'depends': ['base', 'web', 'board'],
     'data':[
         'security/ir.model.access.csv',
         'views/table_view.xml',

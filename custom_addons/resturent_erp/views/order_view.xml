@@ -95,7 +95,7 @@
             </form>
         </field>
     </record>
-t
+
     <record id="view_restaurant_order_graph" model="ir.ui.view">
         <field name="name">restaurant.order.graph</field>
         <field name="model">restaurant.order</field>
