@@ -29,12 +29,10 @@
                 </header>
 
                 <board style="margin-top: 10px;">
-                    <!-- বাঁপাশের কলামে মূল অর্ডার অ্যাকশন (যেখানে কানবান ভিউ প্রথমে ওপেন হবে) -->
                     <column>
                         <action string="Today's Orders &amp; Metrics" name="%(resturent_erp.action_restaurant_order)d"/>
                     </column>
 
-                    <!-- ডানপাশের কলামে সেলস গ্রাফ ভিউ অ্যাকশন -->
                     <column>
                         <action string="Sales Graph Overview" name="%(resturent_erp.action_restaurant_dashboard_graph)d"/>
                     </column>
