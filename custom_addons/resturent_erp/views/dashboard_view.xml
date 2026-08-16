@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="view_restaurant_dashboard_graph" model="ir.ui.view">
+        <field name="name">restaurant.order.dashboard.graph</field>
+        <field name="model">restaurant.order</field>
+        <field name="arch" type="xml">
+            <graph string="Sales Analysis" type="bar">
+                <field name="date_order" interval="day"/>
+                <field name="amount_total" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_restaurant_dashboard_graph" model="ir.actions.act_window">
+        <field name="name">Sales Graph Overview</field>
+        <field name="res_model">restaurant.order</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_restaurant_dashboard_graph"/>
+    </record>
+
     <record id="view_restaurant_dashboard_form" model="ir.ui.view">
         <field name="name">restaurant.dashboard.form</field>
         <field name="model">board.board</field>
@@ -11,12 +29,14 @@
                 </header>
 
                 <board style="margin-top: 10px;">
+                    <!-- বাঁপাশের কলামে মূল অর্ডার অ্যাকশন (যেখানে কানবান ভিউ প্রথমে ওপেন হবে) -->
                     <column>
                         <action string="Today's Orders &amp; Metrics" name="%(resturent_erp.action_restaurant_order)d"/>
                     </column>
 
+                    <!-- ডানপাশের কলামে সেলস গ্রাফ ভিউ অ্যাকশন -->
                     <column>
-                        <action string="Sales Graph Overview" name="%(resturent_erp.action_restaurant_order)d"/>
+                        <action string="Sales Graph Overview" name="%(resturent_erp.action_restaurant_dashboard_graph)d"/>
                     </column>
                 </board>
             </form>
@@ -30,7 +50,7 @@
         <field name="view_id" ref="resturent_erp.view_restaurant_dashboard_form"/>
         <field name="target">current</field>
     </record>
-   
+ 
     <menuitem
         id="menu_restaurant_dashboard"
         name="Dashboard"
