@@ -35,7 +35,6 @@ $restaurant-primary: #f97316; // Odoo Signature Orange
     min-height: 100vh;
     padding: 20px;
 
-    // Table view standard lists group status colors
     .table-status-free {
         background-color: #22c55e !important;
         color: #ffffff !important;
@@ -104,5 +103,35 @@ $restaurant-primary: #f97316; // Odoo Signature Orange
         div:not(.o_kanban_record_top) {
             color: $restaurant-muted-color !important;
         }
+    }
+}
+
+
+.o_web_client {
+    .o_main_navbar {
+        background-color: #1a1a2e !important;
+        border-bottom: 1px solid #16213e !important;
+
+        .o_menu_brand {
+        color: white !important;
+        font-weight: bold !important;
+        }
+
+        
+        .o_menu_sections, .o_menu_apps {
+            .dropdown-item, > li > a {
+                color: white !important;
+                font-weight: bold !important;
+
+                &:hover {
+                    background-color: #0f3460 !important;
+                }
+            }
+        }
+    }
+
+    
+    .o_action_manager {
+        background-color: #121212 !important;
     }
 }

@@ -13,11 +13,30 @@
     </record>
 
     <record id="action_restaurant_dashboard_graph" model="ir.actions.act_window">
-        <field name="name">Sales Graph Overview</field>
+        <field name="name">Sales Bar Graph</field>
         <field name="res_model">restaurant.order</field>
         <field name="view_mode">graph</field>
         <field name="view_id" ref="view_restaurant_dashboard_graph"/>
     </record>
+
+    <record id="view_restaurant_dashboard_pie_graph" model="ir.ui.view">
+        <field name="name">restaurant.order.dashboard.pie.graph</field>
+        <field name="model">restaurant.order</field>
+        <field name="arch" type="xml">
+            <graph string="Orders By Status" type="pie">
+                <field name="state" />
+                <field name="amount_total" type="measure" />
+            </graph>
+        </field>
+    </record>
+
+    <record id="action_restaurant_dashboard_pie_graph" model="ir.actions.act_window">
+        <field name="name">Orders Status Pie Chart</field>
+        <field name="res_model">restaurant.order</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="view_restaurant_dashboard_pie_graph"/>
+    </record>
+
 
     <record id="view_restaurant_dashboard_form" model="ir.ui.view">
         <field name="name">restaurant.dashboard.form</field>
@@ -34,7 +53,8 @@
                     </column>
 
                     <column>
-                        <action string="Sales Graph Overview" name="%(resturent_erp.action_restaurant_dashboard_graph)d"/>
+                        <action string="Sales Bar Overview" name="%(resturent_erp.action_restaurant_dashboard_graph)d"/>
+                        <action string="Orders Status Pie Chart" name="%(resturent_erp.action_restaurant_dashboard_pie_graph)d"/>
                     </column>
                 </board>
             </form>
