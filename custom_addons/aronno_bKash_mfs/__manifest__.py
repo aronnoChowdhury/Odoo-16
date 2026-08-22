@@ -14,6 +14,7 @@
         'views/bkash_header.xml',
         'views/bkash_footer.xml',
         'views/template.xml',
+        'security/ir.model.access.csv',
     ],
     'installable': True,
     'application': True,

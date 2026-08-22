@@ -51,34 +51,37 @@
                             <h6 class="fw-bold text-dark text-center mb-3">Transaction History</h6>
                             
                             <div class="list-group list-group-flush" style="font-size: 13px;">
-                                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
-                                    <div>
-                                        <span class="fw-bold d-block text-danger">Send Money</span>
-                                        <small class="text-muted">To: 01712345678 • 22 Aug, 12:15 AM</small>
-                                    </div>
-                                    <span class="fw-bold text-danger">-৳ 500.00</span>
-                                </div>
-                                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
-                                    <div>
-                                        <span class="fw-bold d-block text-success">Cash In</span>
-                                        <small class="text-muted">From: Agent • 21 Aug, 04:30 PM</small>
-                                    </div>
-                                    <span class="fw-bold text-success">+৳ 5,000.00</span>
-                                </div>
-                                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
-                                    <div>
-                                        <span class="fw-bold d-block text-danger">Mobile Recharge</span>
-                                        <small class="text-muted">For: 01911223344 • 20 Aug, 09:10 AM</small>
-                                    </div>
-                                    <span class="fw-bold text-danger">-৳ 200.00</span>
-                                </div>
-                                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
-                                    <div>
-                                        <span class="fw-bold d-block text-danger">Cash Out</span>
-                                        <small class="text-muted">To: Agent • 19 Aug, 07:45 PM</small>
-                                    </div>
-                                    <span class="fw-bold text-danger">-৳ 2,000.00</span>
-                                </div>
+                                <t t-if="transactions">
+                                    <t t-foreach="transactions" t-as="transaction">
+                                        <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                            <div>
+                                                <span class="fw-bold d-block text-dark">
+                                                    <t t-esc="transaction.transaction_type.replace('_', ' ').title()"/>
+                                                </span>
+                                                <small class="text-muted" style="font-size: 11px;">
+                                                    <t t-if="transaction.operator">
+                                                        For: <t t-esc="transaction.operator"/> •
+                                                    </t>
+                                                    <t t-elif="transaction.recipient">
+                                                        To: <t t-esc="transaction.recipient"/> •
+                                                    </t>
+                                                    <t t-esc="transaction.create_date.strftime('%d %b, %I:%M %p') if transaction.create_date else ''"/>
+                                                </small>
+                                            </div>
+                                            <div>
+                                                <t t-if="transaction.transaction_type == 'cash_in'">
+                                                    <span class="fw-bold text-success">+৳ <t t-esc="'%.2f' % transaction.amount"/></span>
+                                                </t>
+                                                <t t-else="">
+                                                    <span class="fw-bold text-danger">-৳ <t t-esc="'%.2f' % transaction.amount"/></span>
+                                                </t>
+                                            </div>
+                                        </div>
+                                    </t>
+                                </t>
+                                <t t-else="">
+                                    <p class="text-muted text-center py-4" style="font-size: 13px;">No recent transactions found!</p>
+                                </t>
                             </div>
                         </div>
 
@@ -117,6 +120,193 @@
                             </form>
                         </div>
 
+                        <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    
+    <template id="bkash_recharge_template" name="bKash Recharge">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <div class="oe_structure py-5" id="wrap" style="background-color: #f4f5f7; min-height: 100vh;">
+                <div class="container">
+                    <div class="bkash-container mx-auto shadow" style="max-width: 450px; background: #ffffff; border-radius: 20px; overflow: hidden;">
+                        <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
+                        
+                        <div class="p-4">
+                            <h6 class="fw-bold text-dark text-center mb-3">Mobile Recharge</h6>
+                            <form action="/bkash/recharge/submit" method="POST">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label" style="font-size: 12px; font-weight: 600;">Mobile Number</label>
+                                    <input type="text" name="recipient_number" class="form-control form-control-sm" placeholder="01XXXXXXXXX" required="True"/>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label" style="font-size: 12px; font-weight: 600;">Operator</label>
+                                    <select name="operator" class="form-select form-select-sm" required="True">
+                                        <option value="Grameenphone">Grameenphone</option>
+                                        <option value="Robi">Robi</option>
+                                        <option value="Banglalink">Banglalink</option>
+                                        <option value="Airtel">Airtel</option>
+                                        <option value="Teletalk">Teletalk</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label" style="font-size: 12px; font-weight: 600;">Amount (BDT)</label>
+                                    <input type="number" name="amount" class="form-control form-control-sm" placeholder="৳ 0.00" required="True"/>
+                                </div>
+
+                                <button type="submit" class="btn w-100 text-white fw-bold py-2" style="background-color: #e2136e; font-size: 13px; border-radius: 10px;">Proceed</button>
+                            </form>
+                        </div>
+
+                        <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="bkash_settings_template" name="bKash Settings">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+
+            <div class="oe_structure py-5" id="wrap" style="background-color: #f4f5f7; min-height: 100vh;">
+                <div class="container">
+                    <div class="bkash-container mx-auto shadow" style="background: #ffffff; max-width: 450px; border-radius: 20px; overflow: hidden;">
+                        <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
+
+                        <div class="p-4 text-center">
+                            <h6 class="fw-bold text-dark mb-4">Settings</h6>
+
+                            <div class="list-group text-start rounded shadow-sm mb-4" style="font-size: 13px;">
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center ">
+                                    <span class="">🔑 Change bKash PIN</span>
+                                    <span class="text-muted" style="font-size: 11px;">&gt;</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center ">
+                                    <span class="">🌐 Change Language</span>
+                                    <span class="text-muted" style="font-size: 11px;">English &gt;</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center ">
+                                    <span class="">🔔 Notifications</span>
+                                    <span class="text-muted" style="font-size: 11px;">On &gt;</span>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action py-3 d-flex justify-content-between align-items-center ">
+                                    <span class="">🛡️ Device Security</span>
+                                    <span class="text-muted" style="font-size: 11px;">Active &gt;</span>
+                                </a>
+                            </div>
+                            <button class="btn btn-outline-danger btn-sm w-100 py-2 border-dashed fw-bold" style="border-radius: 10px; font-size: 12px;">Log Out from App</button>
+                        </div>
+                        <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="bkash_profile_template" name="bKash Profile">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+
+            <div class="oe_structure py-5" id="wrap" style="background-color: #f4f5f7; min-height: 100vh;">
+                <div class="container">
+                    <div class="bkash-container mx-auto shadow" style="max-width: 450px; background: #ffffff; overflow: hidden; border-radius: 20px;">
+                        <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
+
+                        <div class="p-4 text-center">
+                            <div class="profile-avatar bg-light border d-flex justify-content-center align-items-center rounded-circle mx-auto my-3" style="width: 80px; height: 80px; font-size: 32px; border-color: #e2136e !important;">
+                                👤
+                            </div>
+                            <h5 class="fw-bold mb-1" t-esc="env.user.name"/>
+                            <span class="badge bg-danger rounded-pill px-3 py-1 mb-4" style="background-color: #e2136e !important;">Verified Account</span>
+
+                            <div class="table-responsive text-start" style="font-size: 13px;">
+                                <table class="table table-borderless">
+                                    <t-body>
+                                        <tr class="border-bottom">
+                                            <td class="text-muted py-2">Mobile Number</td>
+                                            <td class="fw-bold text-end py-2">017XXXXXXXX</td>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td class="text-muted py-2">Email Address</td>
+                                            <td class="fw-bold text-end py-2" t-esc="env.user.email or 'N/A'"/>
+                                        </tr>
+                                        <tr class="border-bottom">
+                                            <td class="text-muted py-2">NID Verified</td>
+                                            <td class="fw-bold text-end text-success py-2">Yes ✔</td>
+                                        </tr>
+                                        <tr class="">
+                                            <td class="text-muted py-2">Limit Status</td>
+                                            <td class="fw-bold text-end text-primary py-2">Standard</td>
+                                        </tr>
+                                    </t-body>
+                                </table>
+                            </div>
+                        </div>
+                        <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="bkash_success_template" name="bKash Transaction Success">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+
+            <div class="oe_structure py-5" id="wrap" style="background-color: #f4f5f7; min-height: 100vh;">
+                <div class="container">
+                    <div class="bkash-container mx-auto shadow" style="max-width: 450px; border-radius: 20px; overflow: hidden;">
+                        <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
+
+                        <div class="p-4 text-center">
+                            <div class="success-icon d-flex justify-content-center align-items-center rounded-circle mx-auto my-3" style="width: 70px; height: 70px; background-color: #e8f5e9; color: #2e7d32; font-size: 32px;">
+                            ✔
+                            </div>
+                            <h5 class="fw-bold text-success mb-1">Transaction Successful</h5>
+                            <p class="text-muted" style="font-size: 12px;">Your request has been processed successfully.</p>
+
+                            <div class="card bg-light border-0 my-4 text-start font-monospace" style="font-size: 12px; border-radius: 10px;">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Type:</span>
+                                        <span class="fw-bold text-dark" t-esc="action"/>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2" t-if="recipient">
+                                        <span class="">Destination:</span>
+                                        <span class="fw-bold text-dark" t-esc="recipient"/>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2" t-if="operator">
+                                        <span class="">operator:</span>
+                                        <span class="fw-bold text-dark" t-esc="operator"/>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2" t-if="operator">
+                                        <span class="">operator:</span>
+                                        <span class="fw-bold text-dark" t-esc="operator"/>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Amount:</span>
+                                        <span class="fw-bold text-dark">৳ <t t-esc="amount"/></span>
+                                    </div>
+                                    <div class="d-flex justify-content-between">
+                                        <span>TxnID:</span>
+                                        <span class="fw-bold text-primary">BK48F9A<t t-esc="random_suffix or '32K'"/></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="/bkash" class="btn text-white w-100 py-2 fw-bold" style="background-color: #e2136e; font-size: 13px; border-radius: 10px;">Back to Home</a>
+                        </div>
                         <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
                     </div>
                 </div>
