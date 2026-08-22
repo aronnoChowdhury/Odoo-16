@@ -1,27 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+<template id="bkash_dashboard_template" name="bKash Dashboard">
+    <t t-call="website.layout">
+        <t t-set="no_header" t-value="True"/>
+        <t t-set="no_footer" t-value="True"/>
+        <div class="oe_structure py-5" id="wrap" style="background-color: #f4f5f7; min-height: 100vh;">
+            <div class="container">
+                <div class="bkash-container mx-auto shadow" style="max-width: 450px; background: #ffffff; border-radius: 20px; overflow: hidden;">
+                    <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
 
-    <template id="bkash_dashboard_template" name="bKash Dashboard">
-        <t t-call="website.layout">
-            <div class="oe_structure" id="wrap">
-                <div class="container my-5">
-                    <div class="bkash_container pb-4 mx-auto" style="max-width: 450px; background: #ffffff; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); overflow: hidden;">
-                        <div class="bkash-header text-center text-white p-4" style="background-color: #e2136e;">
-                            <h5 class="mb-1">bKash Web</h5>
-                            <small class="">Aronno Chowdhury</small>
+                    <div class="balance-card d-flex justify-content-between align-items-center p-3 bg-white mx-3 my-3 rounded shadow-sm" style="border-left: 5px solid #e2136e;">
+                        <div class="">
+                            <span class="text-muted" style="font-size: 12px;">Total Balance</span>
+                            <h4 class="mb-0 fw-bold text-dark">৳ 12,500.00</h4>
                         </div>
+                        <button class="btn btn-sm rounded-pill px-3 fw-bold" style="border: 1px solid #e2136e; color: #e2136e; background-color: #fdf0f5; font-size: 11px;">Tap to Balance</button>
+                    </div>
 
-                        <div class="balance-card d-flex justify-content-between align-items-center bg-white p-3 mx-3 mt-n3 shadow-sm rounded" style="border-left: 5px solid #e2136e; position: relative;">
-                            <div class="">
-                                <span class="text-muted" style="font-size: 12px;">Total Balance</span>
-                                <h4 class="mb-0 fw-bold text-dark">৳ 12,500.00</h4>
+                    <div class="container px-4 my-4">
+                        <div class="row g-3 text-center">
+                            <div class="col-4">
+                                <a href="/bkash/send-money" class="text-decoration-none">
+                                    <div class="service-icon mx-auto d-flex justify-content-center align-items-center rounded-circle shadow-sm" style="background: #fdf0f5; width: 55px; height: 55px; font-size: 18px; cursor: pointer;">📤</div>
+                                    <div class="service-level mt-2" style="font-size: 12px; font-weight: 600; color: #444;">Send Money</div>
+                                </a>
                             </div>
-                            <button class="btn btn-sm btn-outline-danger rounded-pill px-3">Tap to Balance</button>
+                            <div class="col-4">
+                                <a href="/bkash/cash-out" class="text-decoration-none">
+                                    <div class="service-icon mx-auto d-flex justify-content-center align-items-center rounded-circle shadow-sm" style="background: #fdf0f5; width: 55px; height: 55px; font-size: 18px; cursor: pointer;">💸</div>
+                                    <div class="service-level mt-2" style="font-size: 12px; font-weight: 600; color: #444;">Cash Out</div>
+                                </a>
+                            </div>
+                            <div class="col-4">
+                                <a href="/bkash/recharge" class="text-decoration-none">
+                                    <div class="service-icon mx-auto d-flex justify-content-center align-items-center rounded-circle shadow-sm" style="background: #fdf0f5; width: 55px; height: 55px; font-size: 18px; cursor: pointer;">📱</div>
+                                    <div class="service-level mt-2" style="font-size: 12px; font-weight: 600; color: #444;">Recharge</div>
+                                </a>
+                            </div>
                         </div>
                     </div>
+                    
+                    <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
                 </div>
             </div>
-        </t>
-    </template>
+        </div>
+    </t>
+</template>
 
 </odoo>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="bkash_custom_footer" name="bKash Custom Footer">
+        <div class="bkash-footer bg-white py-3 px-4 border-top text-center" style="border-bottom-left-radius: 20px; border-bottom-right-radius: 20px;">
+            <div class="d-flex justify-content-around align-items-center" style="font-size: 11px;">
+                <a href="/bkash" class="text-decoration-none text-muted" style="cursor: pointer;">
+                    <span style="font-size: 16px;">🏠</span><br/>Home
+                </a>
+                <a href="/bkash/history" class="text-decoration-none text-muted" style="cursor: pointer;">
+                    <span style="font-size: 16px;">📜</span><br/>History
+                </a>
+                <a href="/bkash/settings" class="text-decoration-none text-muted" style="cursor: pointer;">
+                    <span style="font-size: 16px;">⚙️</span><br/>Settings
+                </a>
+                <a href="/bkash/profile" class="text-decoration-none text-muted" style="cursor: pointer;">
+                    <span style="font-size: 16px;">👤</span><br/>Profile
+                </a>
+            </div>
+        </div>
+    </template>
+
+</odoo>

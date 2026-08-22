@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <template id="bkash_custom_header" name="bKash Custom Header">
+        <div class="bkash-header text-white text-center p-3 shadow-sm" style="background-color: #e2136e; border-top-right-radius: 20px; border-top-left-radius: 20px;">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="" style="font-size: 14px; font-weight: 500;">bKash App</span>
+                <h5 class="mb-0 fw-bold">bKash Web</h5>
+                <span class="" style="font-size: 12px; background: rgba(255, 255, 255, 0.2); padding: 3px 8px; border-radius: 10px;">Menu</span>
+            </div>
+            <small class="d-block mt-1" style="opacity: 0.9; font-size: 12px;">Aronno Chowdhury</small>
+        </div>
+    </template>
+
+</odoo>

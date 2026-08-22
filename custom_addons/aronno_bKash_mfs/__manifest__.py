@@ -11,6 +11,9 @@
     'depends': ['base', 'website'],
     'data': [
         'views/bKash_templates.xml',
+        'views/bkash_header.xml',
+        'views/bkash_footer.xml',
+        'views/template.xml',
     ],
     'installable': True,
     'application': True,

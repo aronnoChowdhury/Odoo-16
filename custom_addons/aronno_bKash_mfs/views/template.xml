@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="bkash_send_money_template" name="bKash Send Money">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <div class="oe_structure py-5" id="wrap" style="background-color: #f4f5f7; min-height: 100vh;">
+                <div class="container">
+                    <div class="bkash-container mx-auto shadow" style="max-width: 450px; background: #ffffff; border-radius: 20px; overflow: hidden;">
+
+                        <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
+
+                        <div class="p-4">
+                            <h6 class="fw-bold text-dark text-center mb-3">Send Money</h6>
+                            <form action="/bkash/send-money/submit" method="POST">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label" style="font-size: 12px; font-weight: 600;">To (Mobile Number)</label>
+                                    <input type="text" name="recipient_number" class="form-control form-control-sm" placeholder="01XXXXXXXXX" required="True"/>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label" style="font-size: 12px; font-weight: 600;">Amount (BDT)</label>
+                                    <input type="number" name="amount" class="form-control form-control-sm" placeholder="৳ 0.00" required="True"/>
+                                </div>
+
+                                <button type="submit" class="btn w-100 text-white fw-bold py-2" style="background-color: #e2136e; font-size: 13px; border-radius: 10px;">Proceed</button>
+                            </form>
+                        </div>
+
+                       <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
+
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="bkash_history_template" name="bKash History">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <div class="oe_structure py-5" id="wrap" style="background-color: #f4f5f7; min-height: 100vh;">
+                <div class="container">
+                    <div class="bkash-container mx-auto shadow" style="max-width: 450px; background: #ffffff; border-radius: 20px; overflow: hidden;">
+                        <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
+                        
+                        <div class="p-4">
+                            <h6 class="fw-bold text-dark text-center mb-3">Transaction History</h6>
+                            
+                            <div class="list-group list-group-flush" style="font-size: 13px;">
+                                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                    <div>
+                                        <span class="fw-bold d-block text-danger">Send Money</span>
+                                        <small class="text-muted">To: 01712345678 • 22 Aug, 12:15 AM</small>
+                                    </div>
+                                    <span class="fw-bold text-danger">-৳ 500.00</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                    <div>
+                                        <span class="fw-bold d-block text-success">Cash In</span>
+                                        <small class="text-muted">From: Agent • 21 Aug, 04:30 PM</small>
+                                    </div>
+                                    <span class="fw-bold text-success">+৳ 5,000.00</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                    <div>
+                                        <span class="fw-bold d-block text-danger">Mobile Recharge</span>
+                                        <small class="text-muted">For: 01911223344 • 20 Aug, 09:10 AM</small>
+                                    </div>
+                                    <span class="fw-bold text-danger">-৳ 200.00</span>
+                                </div>
+                                <div class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                    <div>
+                                        <span class="fw-bold d-block text-danger">Cash Out</span>
+                                        <small class="text-muted">To: Agent • 19 Aug, 07:45 PM</small>
+                                    </div>
+                                    <span class="fw-bold text-danger">-৳ 2,000.00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="bkash_cash_out_template" name="bKash Cash Out">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+            <div class="oe_structure py-5" id="wrap" style="background-color: #f4f5f7; min-height: 100vh;">
+                <div class="container">
+                    <div class="bkash-container mx-auto shadow" style="max-width: 450px; background: #ffffff; border-radius: 20px; overflow: hidden;">
+                        <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
+
+                        <div class="p-4">
+                            <h6 class="fw-bold text-dark text-center mb-3">Cash Out</h6>
+                            <form action="/bkash/cash-out/submit" method="POST">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label" style="font-size: 12px; font-weight: 600;">Agent Number</label>
+                                    <input type="text" name="agent_number" class="form-control form-control-sm" placeholder="01XXXXXXXXX" required="True"/>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="" class="form-label" style="font-size: 12px; font-weight: 600;">Amount (BDT)</label>
+                                    <input type="number" name="amount" class="form-control form-control-sm" placeholder="৳ 0.00" required="True"/>
+                                </div>
+
+                                <button class="btn w-100 text-white fw-bold py-2" type="submit" style="background-color: #e2136e; font-size: 13px; border-radius: 10px;">Proceed</button>
+                            </form>
+                        </div>
+
+                        <t t-call="aronno_bKash_mfs.bkash_custom_footer"/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>
