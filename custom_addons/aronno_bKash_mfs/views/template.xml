@@ -56,21 +56,21 @@
                                         <div class="list-group-item d-flex justify-content-between align-items-center py-3">
                                             <div>
                                                 <span class="fw-bold d-block text-dark">
-                                                    <t t-esc="transaction.transaction_type.replace('_', ' ').title()"/>
+                                                    <t t-esc="dict(transaction._fields['tnx_type'].selection).get(transaction.tnx_type, transaction.tnx_type)"/>
                                                 </span>
                                                 <small class="text-muted" style="font-size: 11px;">
                                                     <t t-if="transaction.operator">
                                                         For: <t t-esc="transaction.operator"/> •
                                                     </t>
-                                                    <t t-elif="transaction.recipient">
+                                                    <t t-if="transaction.recipient">
                                                         To: <t t-esc="transaction.recipient"/> •
                                                     </t>
                                                     <t t-esc="transaction.create_date.strftime('%d %b, %I:%M %p') if transaction.create_date else ''"/>
                                                 </small>
                                             </div>
                                             <div>
-                                                <t t-if="transaction.transaction_type == 'cash_in'">
-                                                    <span class="fw-bold text-success">+৳ <t t-esc="'%.2f' % transaction.amount"/></span>
+                                                <t t-if="transaction.tnx_type == 'send_money'">
+                                                    <span class="fw-bold text-danger">-৳ <t t-esc="'%.2f' % transaction.amount"/></span>
                                                 </t>
                                                 <t t-else="">
                                                     <span class="fw-bold text-danger">-৳ <t t-esc="'%.2f' % transaction.amount"/></span>
@@ -288,11 +288,7 @@
                                         <span class="fw-bold text-dark" t-esc="recipient"/>
                                     </div>
                                     <div class="d-flex justify-content-between mb-2" t-if="operator">
-                                        <span class="">operator:</span>
-                                        <span class="fw-bold text-dark" t-esc="operator"/>
-                                    </div>
-                                    <div class="d-flex justify-content-between mb-2" t-if="operator">
-                                        <span class="">operator:</span>
+                                        <span class="">Operator:</span>
                                         <span class="fw-bold text-dark" t-esc="operator"/>
                                     </div>
                                     <div class="d-flex justify-content-between mb-2">

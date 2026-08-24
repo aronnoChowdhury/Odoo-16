@@ -12,7 +12,12 @@ class BkashFrontendController(http.Controller):
 
     @http.route(['/bkash/history'], type='http', auth='user', website=True)
     def bkash_history(self, **kwargs):
-        return request.render('aronno_bKash_mfs.bkash_history_template', {})
+        transactions = request.env['bkash.transaction'].search([
+            ('user_id', '=', request.env.user.id)
+        ], order='create_date desc')
+        return request.render('aronno_bKash_mfs.bkash_history_template', {
+            'transactions': transactions
+        })
 
     @http.route(['/bkash/settings'], type='http', auth='user', website=True)
     def bkash_settings(self, **kwargs):
@@ -39,6 +44,16 @@ class BkashFrontendController(http.Controller):
         recipient = post.get('recipient_number')
         amount = post.get('amount')
         random_suffix = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
+        
+        
+        request.env['bkash.transaction'].create({
+            'recipient': recipient,
+            'amount': float(amount),
+            'tnx_type': 'send_money',
+            'tnx_id': f'BK{random_suffix}',
+            'user_id': request.env.user.id,
+        })
+        
         return request.render('aronno_bKash_mfs.bkash_success_template', {
             'action': 'Send Money',
             'recipient': recipient,
@@ -51,6 +66,16 @@ class BkashFrontendController(http.Controller):
         agent = post.get('agent_number')
         amount = post.get('amount')
         random_suffix = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
+        
+        
+        request.env['bkash.transaction'].create({
+            'recipient': agent,
+            'amount': float(amount),
+            'tnx_type': 'cash_out',
+            'tnx_id': f'BK{random_suffix}',
+            'user_id': request.env.user.id,
+        })
+        
         return request.render('aronno_bKash_mfs.bkash_success_template', {
             'action': 'Cash Out',
             'recipient': agent,
@@ -64,6 +89,17 @@ class BkashFrontendController(http.Controller):
         operator = post.get('operator')
         amount = post.get('amount')
         random_suffix = ''.join(random.choices(string.ascii_uppercase + string.digits, k=4))
+        
+        
+        request.env['bkash.transaction'].create({
+            'recipient': recipient,
+            'amount': float(amount),
+            'tnx_type': 'recharge',
+            'operator': operator,
+            'tnx_id': f'BK{random_suffix}',
+            'user_id': request.env.user.id,
+        })
+        
         return request.render('aronno_bKash_mfs.bkash_success_template', {
             'action': 'Mobile Recharge',
             'recipient': recipient,
