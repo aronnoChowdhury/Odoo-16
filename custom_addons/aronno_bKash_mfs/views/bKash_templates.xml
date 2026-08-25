@@ -9,12 +9,29 @@
                 <div class="bkash-container mx-auto shadow" style="max-width: 450px; background: #ffffff; border-radius: 20px; overflow: hidden;">
                     <t t-call="aronno_bKash_mfs.bkash_custom_header"/>
 
-                    <div class="balance-card d-flex justify-content-between align-items-center p-3 bg-white mx-3 my-3 rounded shadow-sm" style="border-left: 5px solid #e2136e;">
-                        <div class="">
+                    <style>
+                        .real-balance { display: none; }
+                        .masked-balance { display: inline; }
+
+                        #balance-toggle:checked ~ .balance-content .real-balance { display: inline; }
+                        #balance-toggle:checked ~ .balance-content .masked-balance { display: none; }
+                        #balance-toggle:checked ~ .balance-btn-label {
+                            background-color: #e2136e !important;
+                            color: #fff !important;
+                        }
+                    </style>
+
+                    <div class="balance-card d-flex justify-content-between align-items-center bg-white rounded shadow-sm p-3 mx-3 my-3"  style="border-left: 5px solid #e2136e; position: relative;">
+                        <input type="checkbox" id="balance-toggle" class="d-none"/>
+
+                        <div class="balance-content">
                             <span class="text-muted" style="font-size: 12px;">Total Balance</span>
-                            <h4 class="mb-0 fw-bold text-dark">৳ 12,500.00</h4>
+                            <h4 class="mb-0 fw-bold text-dark">
+                                 <span class="masked-balance">৳ *******</span>
+                                 <span class="real-balance">৳ 12,500.00</span> 
+                            </h4>
                         </div>
-                        <button class="btn btn-sm rounded-pill px-3 fw-bold" style="border: 1px solid #e2136e; color: #e2136e; background-color: #fdf0f5; font-size: 11px;">Tap to Balance</button>
+                        <label for="balance-toggle" class="balance-btn-label btn btn-sm rounded-pill mb-0 fw-bold px-3" style="border: 1px solid #e2136e; color: #e2136e; background-color: #fdf0f5; font-size: 11px; cursor: pointer;">Tap to Balance</label>
                     </div>
 
                     <div class="container px-4 my-4">
@@ -46,5 +63,4 @@
         </div>
     </t>
 </template>
-
 </odoo>

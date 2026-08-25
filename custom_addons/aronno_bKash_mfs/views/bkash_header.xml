@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-
     <template id="bkash_custom_header" name="bKash Custom Header">
-        <div class="bkash-header text-white text-center p-3 shadow-sm" style="background-color: #e2136e; border-top-right-radius: 20px; border-top-left-radius: 20px;">
+        <div class="bkash-header p-3 shadow-sm text-white text-center position-relative" style="background-color: #e2136e; border-top-right-radius: 20px; border-top-left-radius: 20px;">
+            <style class="">
+                .bkash_menu_dropdown {
+                    display: none;
+                    position: absolute;
+                    top: 60px;
+                    right: 15px;
+                    background: #ffffff;
+                    color: #333;
+                    width: 200px;
+                    border-radius: 12px;
+                    border-radius: 12px;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+                    z-index: 1000;
+                    overflow: hidden;
+                    text-align: left;
+                }
+
+                #header_menu_toggle:checked ~ .bkash_menu_dropdown {
+                    display: block;
+                }
+            </style>
+
+            <input type="checkbox" id="header_menu_toggle" class="d-none"/>
+
             <div class="d-flex justify-content-between align-items-center">
-                <span class="" style="font-size: 14px; font-weight: 500;">bKash App</span>
-                <h5 class="mb-0 fw-bold">bKash Web</h5>
-                <span class="" style="font-size: 12px; background: rgba(255, 255, 255, 0.2); padding: 3px 8px; border-radius: 10px;">Menu</span>
+                <span style="font-size: 14px; font-weight: 500;">bKash App</span>
+                <h5 class="fw-bold mb-0">bKash Web</h5>
+
+                <label for="header_menu_toggle" style="font-size: 12px; background: rgba(255, 255, 255, 0.2); padding: 3px 10px; border-radius: 10px; cursor: pointer; margin-bottom: 0;">
+                    Menu ☰
+                </label>
+                <small class="d-block mt-1" style="opacity: 0.9; font-size: 12px;">Aronno Chowdhury</small>
             </div>
-            <small class="d-block mt-1" style="opacity: 0.9; font-size: 12px;">Aronno Chowdhury</small>
+
+            <div class="bkash_menu_dropdown py-2" style="font-size: 13px;">
+                <a href="#" class="dropdown-item px-3 py-2 text-dark text-decoration-none d-block">📷 My QR Code</a>
+                <a href="#" class="dropdown-item px-3 py-2 text-dark text-decoration-none d-block">📊 Limits &amp; Charges</a>
+                <a href="/bkash/settings" class="dropdown-item px-3 py-2 text-dark text-decoration-none d-block">⚙️ Settings</a>
+                <div class="dropdown-divider my-1 bg-light" style="border-top: 1px solid #eee;"></div>
+                <a href="#" class="dropdown-item px-3 py-2 text-danger text-decoration-none fw-bold d-block">🚪 Log Out</a>
+            </div>
         </div>
     </template>
 
