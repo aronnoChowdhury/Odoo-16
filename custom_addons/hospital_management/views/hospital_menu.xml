@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_hospital_root"
+        name="MY ODOO HOSPITAl"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_hospital_patient"
+        name="Patients"
+        action="action_hospital_patient"
+        parent="menu_hospital_root"
+        sequence="10"/>
+
+    <menuitem
+        id="menu_hospital_doctor"
+        name="Doctors"
+        action="action_hospital_doctor"
+        parent="menu_hospital_root"
+        sequence="20"/>
+
+    <menuitem
+        id="menu_hospital_appointment"
+        name="Appointments"
+        action="action_hospital_appointment"
+        parent="menu_hospital_root"
+        sequence="30"/>
+
+</odoo>

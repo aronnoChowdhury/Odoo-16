@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hospital_patient_tree" model="ir.ui.view">
+        <field name="name">hospital.patient.tree</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <tree string="Patients">
+                <field name="patient_id" />
+                <field name="full_name" />
+                <field name="contact_number" />
+                <field name="last_visit_date" />
+                <field name="next_appointment" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_hospital_patient" model="ir.actions.act_window">
+        <field name="name">Patients</field>
+        <field name="res_model">hospital.patient</field>
+        <field name="view_mode">tree</field>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+
+</odoo>
