@@ -14,6 +14,7 @@
         'views/lab_views.xml',
         'views/hospital_accounting.xml',
         'views/hospital_report.xml',
+        'views/hospital_dashboard.xml',
         'views/hospital_menu.xml',
     ],
     'installable': True,
