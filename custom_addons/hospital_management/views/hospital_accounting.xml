@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hospital_accounting_tree" model="ir.ui.view">
+        <field name="name">hospital.accounting.tree</field>
+        <field name="model">hospital.accounting</field>
+        <field name="arch" type="xml">
+            <tree string="Hospital Accountings">
+                <field name="name" />
+                <field name="patient_id" />
+                <field name="total_amount" sum="Total Revenue" />
+                <field name="state" widget="badge" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hospital_accounting_form" model="ir.ui.view">
+        <field name="name">hospital.accounting.form</field>
+        <field name="model">hospital.accounting</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Accounting">
+                <sheet>
+                    <div class="oe_title">
+                        <h1 class=""><field name="name" readonly="1" /></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="patient_id" />
+                            <field name="doctor_fee" />
+                        </group>
+                        <group>
+                            <field name="medicine_fee" />
+                            <field name="lab_fee" />
+                            <field name="total_amount" />
+                            <field name="state" widget="badge" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hospital_accounting" model="ir.actions.act_window">
+        <field name="name">Accounting &amp; Billing</field>
+        <field name="res_model">hospital.accounting</field>
+        <field name="view_mode">tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+    </record>
+
+</odoo>

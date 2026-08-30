@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_hospital_lab_tree" model="ir.ui.view">
+        <field name="name">hospital.lab.tree</field>
+        <field name="model">hospital.lab</field>
+        <field name="arch" type="xml">
+            <tree string="Lab Tests">
+                <field name="patient_id"/>
+                <field name="test_name"/>
+                <field name="test_date"/>
+                <field name="state" widget="badge"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_hospital_lab_form" model="ir.ui.view">
+        <field name="name">hospital.lab.form</field>
+        <field name="model">hospital.lab</field>
+        <field name="arch" type="xml">
+            <form string="Lab Tests">
+                <sheet>
+                    <group>
+                        <group name="" string="">
+                            <field name="patient_id" />
+                            <field name="test_name" />
+                        </group>
+                        <group>
+                            <field name="test_date" />
+                            <field name="state" widget="badge" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Result Summary">
+                            <field name="result_summary" placeholder="Enter diagnostic test results here..." />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hospital_lab" model="ir.actions.act_window">
+        <field name="name">Lab Tests</field>
+        <field name="res_model">hospital.lab</field>
+        <field name="view_mode">tree,form</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new diagnostic test record for a patient!
+            </p>
+        </field>
+    </record>
+
+</odoo>

@@ -16,10 +16,33 @@
         </field>
     </record>
 
+    <record id="view_hospital_patient_form" model="ir.ui.view">
+        <field name="name">hospital.patient.form</field>
+        <field name="model">hospital.patient</field>
+        <field name="arch" type="xml">
+            <form string="Patients">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="patient_id" />
+                            <field name="full_name" />
+                            <field name="contact_number" />
+                        </group>
+                        <group>
+                            <field name="last_visit_date" />
+                            <field name="next_appointment" />
+                            <field name="status" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="action_hospital_patient" model="ir.actions.act_window">
         <field name="name">Patients</field>
         <field name="res_model">hospital.patient</field>
-        <field name="view_mode">tree</field>
+        <field name="view_mode">tree,form</field>
         <field name="type">ir.actions.act_window</field>
     </record>
 

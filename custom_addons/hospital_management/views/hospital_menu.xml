@@ -3,7 +3,7 @@
 
     <menuitem
         id="menu_hospital_root"
-        name="MY ODOO HOSPITAl"
+        name="MY ODOO HOSPITAL"
         sequence="10"/>
 
     <menuitem
@@ -26,5 +26,33 @@
         action="action_hospital_appointment"
         parent="menu_hospital_root"
         sequence="30"/>
+
+    <menuitem
+        id="menu_hospital_pharmacy"
+        name="Pharmacy"
+        action="action_hospital_pharmacy"
+        parent="menu_hospital_root"
+        sequence="40"/>
+
+    <menuitem
+        id="menu_hospital_lab"
+        name="Lab Tests"
+        action="action_hospital_lab"
+        parent="menu_hospital_root"
+        sequence="50"/>
+
+    <menuitem
+        id="menu_hospital_accounting"
+        name="Accounting"
+        action="action_hospital_accounting"
+        parent="menu_hospital_root"
+        sequence="60"/>
+
+    <menuitem
+        id="menu_hospital_report"
+        name="Report"
+        action="action_report_patient_card"
+        parent="menu_hospital_root"
+        sequence="70"/>
 
 </odoo>
