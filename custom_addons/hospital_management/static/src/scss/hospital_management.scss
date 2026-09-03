@@ -1,0 +1,18 @@
+$dark-purple: #1e1b2e;
+
+.o_main_navbar {
+    background-color: $dark-purple !important;
+
+    .o_nav_entry {
+        font-weight: 600 !important;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            background-color: #312e4a !important;
+            color: #ffffff !important;
+        }
+    }
+    .o_menu_brand {
+        font-weight: 700 !important;
+    }
+}

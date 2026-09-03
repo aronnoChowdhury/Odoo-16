@@ -1,7 +1,7 @@
 {
     'name': 'Hospital Management System',
     'version': '16.0.1.0.0',
-    'summary': 'A compleate hospital ERP management system for Odoo 16',
+    'summary': 'A complete hospital ERP management system for Odoo 16',
     'category': 'Healthcare',
     'author': 'Aronno Chowdhury',
     'depends': ['base', 'board', 'mail'],
@@ -17,6 +17,11 @@
         'views/hospital_dashboard.xml',
         'views/hospital_menu.xml',
     ],
+    'assets': {
+        'web.assets_backend': [
+            'hospital_management/static/src/scss/hospital_management.scss',
+        ],
+    },
     'installable': True,
     'application': True,
     'auto_install': False,
