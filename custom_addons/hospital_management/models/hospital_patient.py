@@ -17,13 +17,13 @@ class HospitalPatient(models.Model):
     ], string='Patient Status', default='outpatient')
 
 
-@api.model
-def create(self, vals):
+    @api.model
+    def create(self, vals):
 
-    if vals.get('patient_id', 'New') == 'New':
-        vals['patient_id'] = self.env['ir.sequence'].next_by_code(
-            'hospital.patient'
-        )
+        if vals.get('patient_id', 'New') == 'New':
+            vals['patient_id'] = self.env['ir.sequence'].next_by_code(
+                'hospital.patient'
+            ) or 'New'
 
-    return super(HospitalPatient, self).create(vals)
+        return super(HospitalPatient, self).create(vals)
 

@@ -7,6 +7,7 @@
     'depends': ['base', 'board', 'mail'],
     'data': [
         'security/ir.model.access.csv',
+        'data/sequence.xml',
         'views/patient_views.xml',
         'views/doctor_views.xml',
         'views/appointment_views.xml',

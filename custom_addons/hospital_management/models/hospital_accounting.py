@@ -5,8 +5,8 @@ class HospitalAccounting(models.Model):
     _description = 'Hospital Patient Accounting'
     _rec_name = 'name'
 
-    name = fields.Char(string='Hospital Accounting', required=True, copy=False, readonly=True, default=lambda self:'New')
-    patient_id = fields.Many2one('hospital.patient', string='patient', required=True)
+    name = fields.Char(string='Hospital Accounting', copy=False, readonly=True, default='New')
+    patient_id = fields.Many2one('hospital.patient', string='Patient', required=True)
     doctor_fee = fields.Float(string='Doctor Fee', default=0.0)
     medicine_fee = fields.Float(string='Medicine Fee', default=0.0)
     lab_fee = fields.Float(string='Lab Test Fee', default=0.0)
@@ -25,5 +25,5 @@ class HospitalAccounting(models.Model):
     @api.model
     def create(self, vals):
         if vals.get('name', 'New')  == 'New':
-            vals['name'] = self.env['ir.sequence'].next_by_code('hospital.accounting')
+            vals['name'] = self.env['ir.sequence'].next_by_code('hospital.accounting') or 'New'
         return super(HospitalAccounting, self).create(vals)
