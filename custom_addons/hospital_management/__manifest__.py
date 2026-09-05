@@ -4,7 +4,7 @@
     'summary': 'A complete hospital ERP management system for Odoo 16',
     'category': 'Healthcare',
     'author': 'Aronno Chowdhury',
-    'depends': ['base', 'board', 'mail'],
+    'depends': ['base', 'board', 'mail', 'web', 'website'],
     'data': [
         'security/ir.model.access.csv',
         'data/sequence.xml',
@@ -17,6 +17,7 @@
         'views/hospital_report.xml',
         'views/hospital_dashboard.xml',
         'views/hospital_menu.xml',
+        'views/hospital_website_templates.xml',
     ],
     'assets': {
         'web.assets_backend': [

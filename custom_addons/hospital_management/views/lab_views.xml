@@ -19,6 +19,30 @@
         <field name="model">hospital.lab</field>
         <field name="arch" type="xml">
             <form string="Lab Tests">
+
+                <header class="">
+                    <button class="btn-primary"
+                    name="action_start_test"
+                    string="Start Test"
+                    type="object"
+                    attrs="{'invisible': [('state', '!=', 'pending')]}"
+                    />
+
+                    <button class="btn-success"
+                    name="action_complete_test"
+                    string="Complete Test"
+                    type="object"
+                    attrs="{'invisible': [('state', '!=', 'in_progress')]}"
+                    />
+
+                    <field name="state"
+                           widget="statusbar"
+                           statusbar_visible="pending,in_progress,completed"
+                     />
+
+                </header>
+
+
                 <sheet>
                     <group>
                         <group name="" string="">

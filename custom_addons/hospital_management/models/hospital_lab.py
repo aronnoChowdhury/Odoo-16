@@ -14,3 +14,8 @@ class HospitalLab(models.Model):
         ('in_progress', 'In Progress'),
         ('completed', 'Completed')
     ], string='Status', default='pending')
+    def action_start_test(self):
+        self.state = 'in_progress'
+
+    def action_complete_test(self):
+        self.state = 'completed'
