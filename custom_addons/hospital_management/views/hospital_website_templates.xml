@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    
+    <template id="hospital_appointment_web_form" name="Hospital Appointment Form">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+
+
+            <div class="oe_structure" id="wrap">
+                <div class="container py-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-7">
+
+                            <div class="text-center mb-4">
+                                <h3 class="fw-bold text-primary"><i class="fa fa-hospital-o me-2"></i>MY ODOO HOSPITAL</h3>
+                                <p class="text-muted">Book your appointment with our specialist doctors instantly</p>
+                            </div>
+
+
+                            <div class="card shadow rounded-4 border-0 p-4 bg-white">
+                                <h2 class="text-center fw-bold mb-4 text-primary">Book an Online Appointment</h2>
+
+                                <form action="/hospital/appointment/submit" method="post">
+                                    <div class="mb-3">
+                                        <label for="patient_name" class="form-label fw-semibold">Patient Name</label>
+                                        <input type="text" class="form-control rounded-3" id="patient_name" name="patient_name" required="True" placeholder="Enter your full name" />
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="doctor_id" class="form-label fw-semibold">Select Doctor</label>
+                                        <select name="doctor_id" id="doctor_id" class="form-select rounded-3" required="True">
+                                            <option value="" class="">-- Choose a Doctor --</option>
+                                            <t t-foreach="doctors" t-as="doc">
+                                                <option t-att-value="doc.id">
+                                                    <t t-esc="doc.name"/> (<t t-esc="doc.specialization"/>)
+                                                </option>
+                                            </t>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label for="appointment_date" class="form-label fw-semibold">Appointment Date &amp; Time</label>
+                                        <input type="datetime-local" class="form-control rounded-3" id="appointment_date" name="appointment_date" required="True" />
+                                    </div>
+
+                                    <div class="d-grid">
+                                        <button class="btn btn-primary btn-lg rounded-3 fw-bold shadow-sm" type="submit">Confirm Appointment</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>   
+
+    <template id="hospital_appointment_thankyou" name="Appointment Thank You">
+        <t t-call="website.layout">
+            <t t-set="no_header" t-value="True"/>
+            <t t-set="no_footer" t-value="True"/>
+
+            <div class="oe_structure" id="wrap">
+                <div class="container py-5 text-center" style="min-height: 60vh; display: flex; align-items: center; justify-content: center;">
+                    <div class="card shadow border-0 rounded-4 p-5 bg-white mx-auto" style="max-width: 600px;">
+                        <div class="mb-3 text-success">
+                            <i class="fa fa-check-circle fa-4x"></i>
+                        </div>
+                        <h1 class="fw-bold text-dark mb-3">Appointment Booked Successfully!</h1>
+                        <p class="text-muted mb-4">Thank you for booking with us.We have received your appointment request and our team will get in touch with you shortly.</p>
+                        <div class="">
+                            <a href="/hospital/appointments" class="btn btn-primary rounded-3 px-4 py-2 fw-semibold">Book Another Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
 
 </odoo>
