@@ -15,6 +15,7 @@
         'views/lab_views.xml',
         'views/hospital_accounting.xml',
         'views/hospital_report.xml',
+        'wizard/patient_report_wizard_view.xml',
         'views/hospital_dashboard.xml',
         'views/hospital_menu.xml',
         'views/hospital_website_templates.xml',

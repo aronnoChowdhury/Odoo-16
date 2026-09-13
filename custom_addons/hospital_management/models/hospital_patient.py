@@ -16,6 +16,16 @@ class HospitalPatient(models.Model):
         ('discharged', 'Discharged')
     ], string='Patient Status', default='outpatient')
 
+    appointment_ids = fields.One2many('hospital.appointment', 'patient_id', string='Appointments')
+    accounting_ids = fields.One2many('hospital.accounting', 'patient_id', string='Accounting Records')
+    lab_ids = fields.One2many('hospital.lab', 'patient_id', string='Lab Tests')
+    total_amount = fields.Float(string='Total Bill Amount', compute='_compute_total_amount')
+
+    @api.depends('accounting_ids.total_amount')
+    def _compute_total_amount(self):
+        for patient in self:
+            patient.total_amount = sum(patient.accounting_ids.mapped('total_amount'))
+
 
     @api.model
     def create(self, vals):

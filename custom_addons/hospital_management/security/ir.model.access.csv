@@ -6,3 +6,4 @@ access_hospital_pharmacy,access.hospital.pharmacy,model_hospital_pharmacy,base.g
 access_hospital_lab,access.hospital.lab,model_hospital_lab,base.group_user,1,1,1,1
 access_hospital_accounting,access.hospital.accounting,model_hospital_accounting,base.group_user,1,1,1,1
 access_hospital_report,access.hospital.report,model_hospital_report,base.group_user,1,1,1,1
+access_patient_report_wizard,access.patient.report.wizard,model_patient_report_wizard,base.group_user,1,1,1,1
