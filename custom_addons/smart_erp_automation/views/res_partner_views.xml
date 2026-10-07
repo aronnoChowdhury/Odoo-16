@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form_smart_erp" model="ir.ui.view">
+        <field name="name">res.partner.form.smart.erp</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page name="credit_risk_tab" string="Credit &amp; Risk Management">
+                    <group name="" string="">
+                        <group name="" string="Financial Limits">
+                            <field name="credit_limit_amount" widget="monetary"/>
+                            <field name="total_due_amount" widget="monetary" readonly="1" />
+                        </group>
+                        <group name="" string="Risk Assessment">
+                            <field name="credit_risk_level" widget="badge"
+                            decoration-success="credit_risk_level == 'low'" 
+                            decoration-info="credit_risk_level == 'medium'"
+                            decoration-warning="credit_risk_level == 'high'"
+                            decoration-danger="credit_risk_level == 'critical'"  />
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

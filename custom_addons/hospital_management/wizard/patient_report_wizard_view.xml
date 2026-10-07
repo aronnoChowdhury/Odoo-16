@@ -5,15 +5,23 @@
         <field name="name">patient.report.wizard.form</field>
         <field name="model">patient.report.wizard</field>
         <field name="arch" type="xml">
-            <form string="Print Patient Report">
+            <form string="Print Patient Report" class="o_hospital_report_wizard">
+
+                <div class="o_wizard_header d-flex align-items-center mb-3 pb-2 border-bottom">
+                    <div class="o_wizard_icon me-3" style="font-size: 24px;">📄</div>
+                    <div class="">
+                        <h4 class="mb-0 fw-bold" style="color: #1e1b2e;">Generate Patient Report</h4>
+                        <p class="text-muted small mb-0">Select a specific patient or filter by status to print official report cards.</p>
+                    </div>
+                </div>
                 <group>
                     <group>
-                        <field name="patient_id" placeholder="Select specific patient (Leave empty for all)"/>
+                        <field name="patient_id" placeholder="Select specific patient (Leave empty for all patients)" options="{'no_create': True, 'no_create_edit': True, 'no_open': True}"/>
                         <field name="status" widget="radio"/>
                     </group>
                 </group>
                 <footer>
-                    <button name="action_print_report" string="Print Report" type="object" class="btn-primary"/>
+                    <button name="action_print_report" string="Print Report" type="object" class="btn-primary" icon="fa-print"/>
                     <button string="Cancel" class="btn-secondary" special="cancel"/>
                 </footer>
             </form>
