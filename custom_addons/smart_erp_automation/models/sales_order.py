@@ -44,41 +44,41 @@ class SalesOrder(models.Model):
             net_margin = total_revenue - total_cost 
             order.order_margin = net_margin 
 
-            pct = (net_margin / total_revenue * 100.0) if total_revenue < 0 else 0.0 
+            pct = (net_margin / total_revenue * 100.0) if total_revenue > 0 else 0.0 
             order.order_margin_percent = round(pct, 2) 
 
             if pct >= 30.0: 
                 order.margin_rating = 'high'
             elif pct >= 15.0: 
-                order.order.margin_rating = 'normal' 
+                order.margin_rating = 'normal' 
             elif pct >= 5.0: 
                 order.margin_rating = 'low' 
             else: 
                 order.margin_rating = 'negative' 
 
 
-            @api.depends('partner_id', 'amount_total', 'partner_id.total_due_amount', 'partner_id.credit_limit_amount')
-            def _compute_credit_exceeded(self): 
-                for order in self: 
-                    if order.partner_id: 
-                        partner = order.partner_id 
-                        potential_balance = partner.total_due_amount + order.amount_total 
-                        order.is_credit_exceeded = (potential_balance > partner.credit_limit_amount) and (partner.credit_limit_amount > 0) 
-                    else: 
-                        order.is_credit_exceeded = False 
+    @api.depends('partner_id', 'amount_total', 'partner_id.total_due_amount', 'partner_id.credit_limit_amount')
+    def _compute_credit_exceeded(self): 
+        for order in self: 
+            if order.partner_id: 
+                partner = order.partner_id 
+                potential_balance = partner.total_due_amount + order.amount_total 
+                order.is_credit_exceeded = (potential_balance > partner.credit_limit_amount) and (partner.credit_limit_amount > 0) 
+            else: 
+                order.is_credit_exceeded = False 
 
-                def action_confirm(self): 
-                    for order in self: 
-                        if order.is_credit_exceeded and not order.credit_limit_approved: 
-                            order.approval_state = 'pending' 
-                            raise UserError(_( 
-                                "Customer '%s' has exceeded their authorized credit limit!\n\n"
-                                "Current Due: '%s'\n"
-                                "This Order Total: '%s'\n"
-                                "Authorized Limit: '%s'\n\n" 
-                                "An authorized manager must approve this credit override before the order can be confirmed."
-                            ) % (order.partner_id.name, order.partner_id.total_due_amount, order.amount_total, order.partner_id.credit_limit_amount)) 
-                return super(SalesOrder, self).action_confirm() 
+    def action_confirm(self): 
+        for order in self: 
+            if order.is_credit_exceeded and not order.credit_limit_approved: 
+                order.approval_state = 'pending' 
+                raise UserError(_( 
+                    "Customer '%s' has exceeded their authorized credit limit!\n\n"
+                    "Current Due: '%s'\n"
+                    "This Order Total: '%s'\n"
+                    "Authorized Limit: '%s'\n\n" 
+                    "An authorized manager must approve this credit override before the order can be confirmed."
+                ) % (order.partner_id.name, order.partner_id.total_due_amount, order.amount_total, order.partner_id.credit_limit_amount)) 
+        return super(SalesOrder, self).action_confirm() 
 
 
     def action_manager_approve_credit(self): 
