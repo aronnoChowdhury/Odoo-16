@@ -1,6 +1,8 @@
 {
+    "python.defaultInterpreterPath": "${workspaceFolder}/odoo16-venv/bin/python",
+    "python.terminal.activateEnvironment": true,
     "python.analysis.extraPaths": [
-        "./odoo18",
-        "./odoo"
+        "./odoo",
+        "./custom_addons"
     ]
 }
