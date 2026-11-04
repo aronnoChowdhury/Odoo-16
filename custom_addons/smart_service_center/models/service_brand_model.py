@@ -34,7 +34,7 @@ class ServiceDeviceModel(models.Model):
     device_type = fields.Selection([
         ('mobile', 'Mobile / Smartphone'), 
         ('laptop', 'Laptop / PC'), 
-        ('Tablet', 'Tablet / ipad'), 
+        ('tablet', 'Tablet / ipad'), 
         ('appliance', 'Home Appliance'), 
         ('other', 'Other Devices')
     ], string='Device Category', default='mobile', required=True) 
