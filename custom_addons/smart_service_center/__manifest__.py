@@ -30,7 +30,9 @@ Key Capabilities:
 ], 
 
 'data': [
-
+    'security/ir.model.access.csv', 
+    'views/service_device_brand_view.xml', 
+    'views/service_menus.xml',
 ],
 'demo':[], 
 'installable': True, 

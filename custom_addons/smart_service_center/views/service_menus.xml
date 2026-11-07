@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="menu_service_root"
+        name="Smart Service Center"
+        web_icon="smart_service_center,static/description/icon.png"
+        sequence="10"/> 
+
+    <menuitem
+        id="menu_service_configuration"
+        name="Configuration"
+        parent="menu_service_root"
+        sequence="100"/> 
+
+    <menuitem
+        id="menu_service_device_brand"
+        name="Device Brands"
+        parent="menu_service_configuration" 
+        action="action_service_device_brand"
+        sequence="10"/>
+
+</odoo>
