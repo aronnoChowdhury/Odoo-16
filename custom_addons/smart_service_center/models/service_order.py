@@ -27,8 +27,8 @@ class ServiceOrder(models.Model):
     technical_notes = fields.Text(string='Technician Diagnosis & Action Taken') 
 
     technician_id = fields.Many2one('res.users', string='Assigned Technician', default=lambda self: self.env.user, tracking=True) 
-    data_received = fields.Datetime(string='Received Date', default=fields.Datetime.now, readonly=True) 
-    date_daedline = fields.Date(string='Target Delivery Date', tracking=True) 
+    date_received = fields.Datetime(string='Received Date', default=fields.Datetime.now, readonly=True) 
+    date_deadline = fields.Date(string='Target Delivery Date', tracking=True) 
     priority = fields.Selection([
         ('0', 'Low'), 
         ('1', 'Normal'), 
@@ -101,7 +101,7 @@ class ServiceOrder(models.Model):
         self.write({'state': 'delivered'})  
 
     def action_cancel(self): 
-        self.write({'state': 'canceled'})  
+        self.write({'state': 'cancelled'})  
 
     def action_reset_draft(self): 
         self.write({'state': 'draft'})  
@@ -123,7 +123,7 @@ class ServiceOrderLine(models.Model):
     price_unit = fields.Float(string='Unit Price', default=0.0) 
     is_warranty = fields.Boolean(string='Covered Under Warrenty', help='If checked, customer id not charged for this part') 
 
-    price_subtotal = fields.Monetary(string='Subtotal', compute='_Compute_subtotal', store=True, currency_field='currency_id') 
+    price_subtotal = fields.Monetary(string='Subtotal', compute='_compute_subtotal', store=True, currency_field='currency_id') 
     currency_id = fields.Many2one(related='order_id.currency_id', string='Currency', readonly=True) 
 
 

@@ -39,7 +39,7 @@ class ServiceDeviceModel(models.Model):
         ('other', 'Other Devices')
     ], string='Device Category', default='mobile', required=True) 
     default_warranty_months = fields.Integer(string='Default Warranty (Months)', default=12, help='Standard manufacturer warranty period in months') 
-    notes = fields.Text(string='Technical Specs / Notes')  
+    notes = fields.Html(string='Technical Specs / Notes')  
 
 class ServiceDefectType(models.Model): 
     _name = 'service.defect.type' 

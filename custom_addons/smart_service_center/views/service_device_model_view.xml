@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_service_device_model_tree" model="ir.ui.view">
+        <field name="name">service.device.model.tree</field>
+        <field name="model">service.device.model</field>
+        <field name="arch" type="xml">
+            <tree string="Device Models">
+                <field name="name" />
+                <field name="brand_id" /> 
+                <field name="device_type" /> 
+                <field name="default_warranty_months" />
+            </tree>
+        </field>
+    </record> 
+
+    <record id="view_service_device_model_form" model="ir.ui.view">
+        <field name="name">service.device.model.form</field>
+        <field name="model">service.device.model</field>
+        <field name="arch" type="xml">
+            <form string="Device Models">
+                <sheet> 
+                    <div class="oe_title"> 
+                        <label for="name" class="oe_edit_only" string="model_name"/> 
+                        <h1 class=""><field name="name" placeholder="e.g. iPhone 15 pro, Galaxy S26" /></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="brand_id" options="{'no_create_edit': True}" /> 
+                            <field name="device_type" />
+                        </group> 
+                        <group>
+                            <field name="default_warranty_months" />
+                        </group>
+                    </group> 
+                    <group string="Technical Specifications / Notes">
+                        <field name="notes" widget="html" nolabel="1" placeholder="Add technical details, processor, screen type or repair guidelines...." />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> 
+
+    <record id="action_service_device_model" model="ir.actions.act_window">
+        <field name="name">Device Models</field>
+        <field name="res_model">service.device.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

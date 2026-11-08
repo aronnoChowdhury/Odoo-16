@@ -18,6 +18,20 @@
         name="Device Brands"
         parent="menu_service_configuration" 
         action="action_service_device_brand"
-        sequence="10"/>
+        sequence="10"/> 
+    
+    <menuitem
+        id="menu_service_device_model"
+        name="Device Models"
+        action="action_service_device_model"
+        parent="menu_service_configuration"
+        sequence="20"/> 
+
+    <menuitem
+        id="menu_service_defect_type"
+        name="Defect Types"
+        action="action_service_defect_type" 
+        parent="menu_service_configuration"
+        sequence="30"/>
 
 </odoo>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_service_defect_type_tree" model="ir.ui.view">
+        <field name="name">service.defect.type.tree</field>
+        <field name="model">service.defect.type</field>
+        <field name="arch" type="xml">
+            <tree string="Defect Types" editable="bottom">
+                <field name="sequence" widget="handle" /> 
+                <field name="name" /> 
+                <field name="code" /> 
+                <field name="description" />
+            </tree>
+        </field>
+    </record> 
+
+    <record id="action_service_defect_type" model="ir.actions.act_window">
+        <field name="name">Defect Types</field>
+        <field name="res_model">service.defect.type</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>
