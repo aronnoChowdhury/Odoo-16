@@ -1,4 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_service_device_brand,access.service.device.brand,model_service_device_brand,base.group_user,1,1,1,1
 access_service_device_model,access.service.device.model,model_service_device_model,base.group_user,1,1,1,1
-access_service_defect_type,access.service.defect.type,model_service_defect_type,base.group_user,1,1,1,1
+access_service_defect_type,access.service.defect.type,model_service_defect_type,base.group_user,1,1,1,1 
+access_service_order,access.service.order,model_service_order,base.group_user,1,1,1,1 
+access_service_order_line,access.service.order.line,model_service_order_line,base.group_user,1,1,1,1 

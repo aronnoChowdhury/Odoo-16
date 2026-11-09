@@ -30,10 +30,12 @@ Key Capabilities:
 ], 
 
 'data': [
-    'security/ir.model.access.csv', 
+    'security/ir.model.access.csv',  
+    'data/service_sequence.xml',
     'views/service_device_brand_view.xml',  
     'views/service_device_model_view.xml', 
-    'views/service_defect_type_views.xml',
+    'views/service_defect_type_views.xml', 
+    'views/service_order_view.xml',
     'views/service_menus.xml',
 ],
 'demo':[], 
