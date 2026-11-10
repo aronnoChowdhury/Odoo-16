@@ -25,6 +25,60 @@
                        decoration-danger="state == 'cancelled'"/> 
             </tree>
         </field>
+    </record> 
+
+    <record id="view_service_order_form" model="ir.ui.view">
+        <field name="name">service.order.form</field>
+        <field name="model">service.order</field>
+        <field name="arch" type="xml">
+            <form string="Service Order"> 
+                <header class="">
+                    <button name="action_create_quotation" string="Create Quotation" type="object" class="oe_highlight" attrs="{'invisible': [('state':, '!=', 'draft')]}"/> 
+                    <button name="action_start_diagnosis" string="Start Diagnosis" type="object" class="oe_highlight" attrs="{'invisible': [('state':, '!=', 'diagnosing')]}"/> 
+                    <button name="action_start_repair" string="Start Repair" type="object" class="oe_highlight" attrs="{'invisible': [('state':, 'not in', ('diagnosing', 'quotation'))]}"/> 
+                    <button name="action_start_qc" string="Quality Check (QC)" type="object" class="oe_highlight" attrs="{'invisible': [('state':, '!=', 'in_progress')]}"/> 
+                    <button name="action_ready_for_delivery" string="Ready for Delivery" type="object" class="btn-success" attrs="{'invisible': [('state':, '!=', 'qc')]}"/> 
+                    <button name="action_deliver" string="Deliver to Customer" type="object" class="btn-success" attrs="{'invisible': [('state':, '!=', 'ready')]}"/>  
+                    <button name="action_cancel" string="Cancel Order" type="object" attrs="{'invisible': [('state', 'in', ('delivered', 'cancelled'))]}"/>
+                    <button name="action_reset_draft" string="Reset to Draft" type="object" attrs="{'invisible': [('state', '!=', 'cancelled')]}"/> 
+
+                    <field name="state" widget="statusbar" statusbar_visible="draft,diagnosing,in_progress,qc,ready,delivered" />
+                    
+                </header>
+                <sheet> 
+                    <div class="oe_title"> 
+                        <span class="o_form_label">Job Sheet Number</span> 
+                        <h1 class=""> 
+                            <field name="name" readonly="one" />
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Customer Information">
+                            <field name="partner_id" widget="res_partner_many2one" context="{'show_address': 1}" options="{'always_reload': True}" /> 
+                            <field name="partner_phone" widget="phone" /> 
+                            <field name="partner_email" widget="email" />
+                        </group> 
+                        <group string="Device Information">
+                            <field name="brand_id" options="{'no_create_edit': True}" /> 
+                            <field name="model_id" options="{'no_create_edit': True}" /> 
+                            <field name="serial_no" placeholder="IMEI or Serial Number" /> 
+                            <field name="warranty_type" />
+                        </group>
+                    </group> 
+                    <group>
+                        <group string="Assignment &amp; Schedule">
+                            <field name="technician_id" widget="many2one_avatar_user" /> 
+                            <field name="date_received" /> 
+                            <field name="date_deadline" /> 
+                            <field name="priority" widget="priority" />
+                        </group> 
+                        <group string="Reported Symptoms">
+                            <field name="defect_type_ids" widget="many2many_tags" placeholder="Select common issues ..." />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
 </odoo>
