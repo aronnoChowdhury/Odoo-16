@@ -75,9 +75,94 @@
                         <group string="Reported Symptoms">
                             <field name="defect_type_ids" widget="many2many_tags" placeholder="Select common issues ..." />
                         </group>
-                    </group>
-                </sheet>
+                    </group> 
+                    <notebook>
+                        <page name="parts_services" string="Parts &amp; Services">
+                            <field name="order_line_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id" /> 
+                                    <field name="name" /> 
+                                    <field name="type" /> 
+                                    <field name="product_uom_qty" /> 
+                                    <field name="price_unit" /> 
+                                    <field name="is_warranty" /> 
+                                    <field name="price_subtotal" widget="monetary" /> 
+                                    <field name="currency_id" invisible="1" />
+                                </tree>
+                            </field> 
+                            <group name="note_group" col="6" class="mt-2 mt-md-0">
+                                <group colspan="4"/>  
+                                <group class="oe_subtotal_footer oe_right" colspan="2">
+                                    <field name="currency_id" invisible="1" /> 
+                                    <field name="amount_parts" widget="monetary" /> 
+                                    <field name="amount_labor" widget="monetary" /> 
+                                    <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                        <label for="amount_total"/>
+                                    </div>
+                                    <field name="amount_total" nolabel="1" class="oe_subtotal_footer_separator" widget="monetary"/>
+                                </group>
+                                <div class="clearfix"/>
+                            </group>
+                        </page> 
+                        <page name="diagnosis_notes" string="Diagnosis &amp; Complaints">
+                            <group>
+                                <field name="customer_problem" placeholder="Describe the customer's issue in detail...." /> 
+                                <field name="technical_notes" placeholder="Technician diagnosis findings and actions performed...." />
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet> 
+
+                <div class="oe_chatter">
+                    <field name="message_foller_ids" /> 
+                    <field name="activity_ids" /> 
+                    <field name="message_ids" />
+                </div>
             </form>
+        </field>
+    </record> 
+
+    <record id="view_service_order_kanban" model="ir.ui.view">
+        <field name="name">service.order.kanban</field>
+        <field name="model">service.order</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="state" sample="1"> 
+                <field name="name" /> 
+                <field name="partner_id" /> 
+                <field name="brand_id" /> 
+                <field name="model_id" /> 
+                <field name="amount_total" /> 
+                <field name="currency_id" /> 
+                <field name="priority" /> 
+                <field name="technician_id" /> 
+                <field name="state" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click p-3 mb-2 rounded shadow_sm border">
+                            <div class="d-flex justify-content_between align_items_center mb-2">
+                                <strong class="text-primary fw-bold fs-5">
+                                    <field name="name" />
+                                </strong> 
+                                <field name="priority" widget="priority" />
+                            </div> 
+                            <div class="mb-1 text-muted">
+                                <i class="fa fa-user me-1"/> <field name="partner_id" />
+                            </div> 
+                            <div class="mb-2">
+                                <span class="badge bg-light text-dark border">
+                                    <field name="brand_id" /> - <field name="model_id" />
+                                </span>
+                            </div> 
+                            <div class="d-flex justify-content-between align-items-center border-top pt-2">
+                                <span class="fw-bold text-success">
+                                    <field name="amount_total" widget="monetary" /> 
+                                </span> 
+                                <field name="technician_id" widget="many2one_avatar_user" />
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
         </field>
     </record>
 
